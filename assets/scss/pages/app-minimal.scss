@@ -1,0 +1,18 @@
+/* =========================================================================
+   App v2 Styles
+   ========================================================================= */
+// Defines styles for version 2 of the app layout, including text selection
+// and tooltip appearance for primary elements.
+
+::selection,
+::-webkit-selection,
+::-moz-selection,
+::-o-selection,
+::-ms-selection {
+  background: var(--green-700);                // Green background for selected text
+  color: var(--gray-100);                      // Light gray text color
+}
+
+.primary {
+  --bs-tooltip-bg: var(--green-800);           // Green tooltip background for primary elements
+}

@@ -1,0 +1,45 @@
+/* =========================================================================
+   Box Shadow Styles
+   ========================================================================= */
+// Defines utility classes for box shadows with increasing sizes for subtle elevation effects.
+// Each class applies a shadow using a mixin with parameters: x-offset, y-offset, blur, spread, and color.
+
+.shadow-xs { 
+  @include shadow-xs(
+    0,                    // X-offset: No horizontal shift
+    0,                    // Y-offset: No vertical shift
+    5px,                  // Blur radius: Small blur for subtle shadow
+    0,                    // Spread: No expansion of shadow
+    rgba(0,0,0,0.15)      // Color: Semi-transparent black for soft shadow
+  );
+}
+
+.shadow-sm { 
+  @include shadow-sm(
+    0,                    // X-offset: No horizontal shift
+    0,                    // Y-offset: No vertical shift
+    10px,                 // Blur radius: Slightly larger blur for noticeable shadow
+    0,                    // Spread: No expansion of shadow
+    rgba(0,0,0,0.15)      // Color: Semi-transparent black for soft shadow
+  );
+}
+
+.shadow-md { 
+  @include shadow-md(
+    0,                    // X-offset: No horizontal shift
+    0,                    // Y-offset: No vertical shift
+    15px,                 // Blur radius: Medium blur for moderate shadow
+    0,                    // Spread: No expansion of shadow
+    rgba(0,0,0,0.15)      // Color: Semi-transparent black for soft shadow
+  );
+}
+
+.shadow-lg { 
+  @include shadow-lg(
+    0,                    // X-offset: No horizontal shift
+    0,                    // Y-offset: No vertical shift
+    20px,                 // Blur radius: Large blur for prominent shadow
+    0,                    // Spread: No expansion of shadow
+    rgba(0,0,0,0.15)      // Color: Semi-transparent black for soft shadow
+  );
+}

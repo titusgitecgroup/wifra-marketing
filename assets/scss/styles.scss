@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+/* =========================================================================
+   Main Stylesheet
+   ========================================================================= */
+// This file serves as the entry point for the SCSS architecture, importing all
+// abstract, base, component, element, and layout styles to compile the complete
+// stylesheet for the project.
+
+@import 'abstracts/all-abstracts'; // Core utilities: mixins and variables
+@import 'base/all-base';          // Base styles: typography, colors, and resets
+@import 'components/all-components'; // UI components: buttons, carousels, dropdowns, etc.
+@import 'elements/all-elements';   // Interactive elements: accordions, cards, sliders, etc.
+@import 'layout/all-layout';       // Structural layout: headers, footers, and navigation

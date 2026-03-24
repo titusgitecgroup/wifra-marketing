@@ -1,0 +1,14 @@
+/* =========================================================================
+   Animation Utility Classes
+   ========================================================================= */
+// Defines utility classes for applying CSS animations to elements.
+
+// Floating Animation
+.floating {
+  @include animation(
+    floating,                               // Animation name
+    3s,                                     // Duration: 3 seconds
+    infinite,                               // Repeats indefinitely
+    ease-in-out                             // Smooth easing effect
+  );
+}

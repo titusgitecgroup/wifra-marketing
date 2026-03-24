@@ -1,0 +1,195 @@
+/* =========================================================================
+   SCSS Mixins
+   ========================================================================= */
+// Defines reusable mixins for common styling patterns, including transitions,
+// gradients, overlays, animations, shadows, borders, and button styles.
+
+/* =========================================================================
+   Transition Mixins
+   ========================================================================= */
+// Provides mixins for applying CSS transitions with cross-browser compatibility.
+
+@mixin textHover($time) {
+  // Applies a transition effect for text hover states
+  -webkit-transition: $time; // WebKit browsers
+  -moz-transition: $time;    // Firefox
+  -o-transition: $time;      // Opera
+  transition: $time;         // Standard transition
+}
+
+@mixin transition($property, $effect, $time) {
+  // Applies a customizable transition to specified properties
+  -webkit-transition: $property $effect $time; // WebKit browsers
+  -moz-transition: $property $effect $time;    // Firefox
+  -o-transition: $property $effect $time;      // Opera
+  transition: $property $effect $time;         // Standard transition
+}
+
+/* =========================================================================
+   Gradient Mixin
+   ========================================================================= */
+// Creates a linear gradient background with customizable direction.
+
+@mixin gradient-bg($direction) {
+  // Applies a linear gradient using CSS variables for start and end colors
+  background-image: linear-gradient($direction, var(--gradient-start), var(--gradient-end));
+}
+
+/* =========================================================================
+   Background Overlay Mixin
+   ========================================================================= */
+// Adds a semi-transparent overlay with a multiply blend mode.
+
+@mixin bg-overlay($color, $intensity, $opacity: 0.85) {
+  // Creates an overlay pseudo-element with specified color and opacity
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: $opacity;                         // Default opacity of 85%
+  background: var(--#{$color}-#{$intensity}); // Uses color palette variable
+  mix-blend-mode: multiply;                  // Applies multiply blend mode
+  left: 0;
+  top: 0;
+}
+
+/* =========================================================================
+   Animation Mixins
+   ========================================================================= */
+// Defines keyframes and animation properties for dynamic effects.
+
+@mixin animation-keyframes($name, $from, $rest, $to) {
+  // Creates keyframes for a custom animation with translation effects
+  @keyframes #{$name} {
+    0% { transform: translate($from, 0px); }     // Starting position
+    65% { transform: translate($rest, 30px); }   // Midpoint with vertical offset
+    100% { transform: translate($to, -0px); }    // Ending position
+  }
+}
+@include animation-keyframes(
+  $name: floating,  // Animation name
+  $from: 0,         // Initial translation
+  $rest: 0,         // Midpoint translation
+  $to: 0            // Final translation
+);
+
+@mixin animation($name, $duration, $count, $function) {
+  // Applies animation properties to an element
+  animation-name: $name;                     // Animation name
+  animation-duration: $duration;             // Duration of animation
+  animation-iteration-count: $count;         // Number of repetitions
+  animation-timing-function: $function;      // Easing function
+}
+
+/* =========================================================================
+   Box Shadow Mixins
+   ========================================================================= */
+// Defines mixins for box shadows with varying sizes and cross-browser support.
+
+@mixin shadow($x, $y, $blur, $radius, $color) {
+  // Generic box shadow with customizable parameters
+  -webkit-box-shadow: $x $y $blur $radius $color !important; // WebKit browsers
+  -moz-box-shadow: $x $y $blur $radius $color !important;    // Firefox
+  box-shadow: $x $y $blur $radius $color !important;         // Standard shadow
+}
+
+@mixin shadow-xs($x, $y, $blur, $radius, $color) {
+  // Extra-small box shadow for subtle elevation
+  -webkit-box-shadow: $x $y $blur $radius $color !important; // WebKit browsers
+  -moz-box-shadow: $x $y $blur $radius $color !important;    // Firefox
+  box-shadow: $x $y $blur $radius $color !important;         // Standard shadow
+}
+
+@mixin shadow-sm($x, $y, $blur, $radius, $color) {
+  // Small box shadow for light elevation
+  -webkit-box-shadow: $x $y $blur $radius $color !important; // WebKit browsers
+  -moz-box-shadow: $x $y $blur $radius $color !important;    // Firefox
+  box-shadow: $x $y $blur $radius $color !important;         // Standard shadow
+}
+
+@mixin shadow-md($x, $y, $blur, $radius, $color) {
+  // Medium box shadow for moderate elevation
+  -webkit-box-shadow: $x $y $blur $radius $color !important; // WebKit browsers
+  -moz-box-shadow: $x $y $blur $radius $color !important;    // Firefox
+  box-shadow: $x $y $blur $radius $color !important;         // Standard shadow
+}
+
+@mixin shadow-lg($x, $y, $blur, $radius, $color) {
+  // Large box shadow for prominent elevation
+  -webkit-box-shadow: $x $y $blur $radius $color !important; // WebKit browsers
+  -moz-box-shadow: $x $y $blur $radius $color !important;    // Firefox
+  box-shadow: $x $y $blur $radius $color !important;         // Standard shadow
+}
+
+/* =========================================================================
+   Border Radius Mixin
+   ========================================================================= */
+// Applies consistent border radius with cross-browser compatibility.
+
+@mixin border-radius($radius) {
+  // Sets border radius for rounded corners
+  -webkit-border-radius: $radius; // WebKit browsers
+  -moz-border-radius: $radius;    // Firefox
+  -ms-border-radius: $radius;     // Microsoft browsers
+  -o-border-radius: $radius;      // Opera
+  border-radius: $radius;         // Standard border radius
+}
+
+/* =========================================================================
+   Button Mixins
+   ========================================================================= */
+// Defines mixins for styling buttons, including default, soft, store, and social variants.
+
+@mixin button($background, $text-color, $border-color) {
+  // Applies core button styles
+  background-color: $background !important;   // Button background color
+  color: $text-color !important;              // Button text color
+  border-color: $border-color !important;     // Button border color
+}
+
+@mixin button-styles($background, $text-color, $border-color) {
+  // Defines default button appearance (alias for button mixin)
+  background-color: $background !important;   // Button background color
+  color: $text-color !important;              // Button text color
+  border-color: $border-color !important;     // Button border color
+}
+
+@mixin button-hover-focus($hover-background, $hover-text-color, $hover-border-color) {
+  // Styles for button hover and focus states
+  &:hover,
+  &:focus-visible {
+    @include button($hover-background, $hover-text-color, $hover-border-color); // Applies hover/focus styles
+  }
+}
+
+@mixin button-soft($background, $background-opacity, $text-color, $border-color, $border-opacity) {
+  // Styles for soft (semi-transparent) buttons
+  background-color: rgba($background, $alpha: $background-opacity) !important; // Semi-transparent background
+  color: $text-color !important;                                               // Button text color
+  border-color: rgba($border-color, $alpha: $border-opacity) !important;       // Semi-transparent border
+}
+
+@mixin button-soft-hover-focus($hover-background, $hover-background-opacity) {
+  // Hover and focus styles for soft buttons
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($hover-background, $alpha: $hover-background-opacity) !important; // Updated background on hover/focus
+  }
+}
+
+@mixin store-btn($bg) {
+  // Styles for store-specific buttons (e.g., app store buttons)
+  background: $bg;                           // Button background color
+  &:active {
+    background: $bg;                         // Maintains background on active state
+    border-color: $bg;                       // Matches border to background
+  }
+}
+
+@mixin social-button-hover-focus($bg, $text, $border) {
+  // Hover and focus styles for social media buttons
+  &:hover,
+  &:focus-visible {
+    @include button($bg, $text, $border);    // Applies social button styles on hover/focus
+  }
+}

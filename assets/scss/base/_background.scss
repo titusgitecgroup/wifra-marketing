@@ -1,0 +1,28 @@
+/* =========================================================================
+   Background Style Utilities
+   ========================================================================= */
+// Defines utility classes for controlling background positioning, attachment,
+// blend mode, repeat, and size properties.
+
+// Background Position
+.bg-st { background-position: left top; }          // Aligns background to top-left
+.bg-et { background-position: right top; }         // Aligns background to top-right
+.bg-cc { background-position: center center; }     // Centers background
+.bg-sb { background-position: left bottom; }       // Aligns background to bottom-left
+.bg-eb { background-position: right bottom; }      // Aligns background to bottom-right
+.bg-tc { background-position: top center; }        // Aligns background to top-center
+.bg-bc { background-position: bottom center; }     // Aligns background to bottom-center
+
+// Background Attachment
+.bg-fixed { background-attachment: fixed; }        // Fixes background relative to viewport
+
+// Background Blend Mode
+.bg-blend-multiply { background-blend-mode: multiply; } // Applies multiply blend mode
+
+// Background Repeat
+.bg-repeat { background-repeat: repeat; }         // Repeats background image
+.bg-repeat { background-repeat: no-repeat; }     // Prevents background image repetition
+
+// Background Size
+.bg-size-contain { background-size: contain !important; } // Scales background to fit within element
+.bg-size-cover { background-size: cover !important; }     // Scales background to cover element

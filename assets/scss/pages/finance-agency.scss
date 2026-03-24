@@ -1,0 +1,12 @@
+/* =========================================================================
+   Finance Styles
+   ========================================================================= */
+// Defines styles for finance-related components, including text selection.
+
+::selection,
+::-webkit-selection,
+::-moz-selection,
+::-o-selection {
+  background: var(--color-600);               // Dark blue background for selected text
+  color: var(--text-color);                    // Light gray text color
+}

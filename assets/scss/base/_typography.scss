@@ -1,0 +1,177 @@
+/* =========================================================================
+   Google Fonts Import
+   ========================================================================= */
+// Imports Google Fonts for consistent typography across the project.
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
+
+/* =========================================================================
+   Font Family Variables
+   ========================================================================= */
+// Defines a map of font families for use in utility classes.
+
+$font-families: (
+  serif: var(--font-serif),                   // Serif font for decorative text
+  sans-serif: var(--font-sans-serif),         // Sans-serif font for general use
+  primary: var(--font-primary),               // Primary font for body text
+  handwriting: var(--font-handwriting),       // Handwritten font for informal text
+  monospace: var(--font-monospace)            // Monospace font for code or technical text
+);
+
+/* =========================================================================
+   Font Family Utility Classes
+   ========================================================================= */
+// Generates utility classes for applying font families (e.g., .font-serif).
+
+@each $name, $font in $font-families {
+  .font-#{$name} {
+    font-family: #{$font} !important;         // Overrides default font family
+  }
+}
+
+/* =========================================================================
+   Font Size Variables
+   ========================================================================= */
+// Defines a map of font sizes for body text and other elements.
+
+$font-sizes: (
+  xs: var(--text-xs),                         // Extra-small text size
+  sm: var(--text-sm),                         // Small text size
+  md: var(--text-md),                         // Medium text size
+  lg: var(--text-lg),                         // Large text size
+  xl: var(--text-xl),                         // Extra-large text size
+  2xl: var(--text-2xl),                       // Double extra-large text size
+  base: var(--text-base)                      // Base body text size
+);
+
+/* =========================================================================
+   Font Size Utility Classes (.fs-*)
+   ========================================================================= */
+// Generates utility classes for applying font sizes (e.g., .fs-xs).
+
+@each $size, $value in $font-sizes {
+  .fs-#{$size} {
+    font-size: #{$value} !important;          // Overrides default font size
+  }
+}
+
+/* =========================================================================
+   Headings (h1–h6 and .h1–.h6)
+   ========================================================================= */
+// Defines styles for HTML heading tags and corresponding utility classes.
+
+$headings: (
+  h1: var(--h1),                             // Primary heading size
+  h2: var(--h2),                             // Secondary heading size
+  h3: var(--h3),                             // Tertiary heading size
+  h4: var(--h4),                             // Fourth heading size
+  h5: var(--h5),                             // Fifth heading size
+  h6: var(--h6)                              // Smallest heading size
+);
+
+@each $tag, $size in $headings {
+  #{$tag}, .#{$tag} {
+    color: var(--neutral-950);                // Dark neutral color for headings
+    font-family: var(--font-primary);         // Primary font for headings
+    font-size: #{$size} !important;           // Overrides default font size
+  }
+}
+
+/* =========================================================================
+   Display Headings (.display-1 to .display-6)
+   ========================================================================= */
+// Defines utility classes for large display headings.
+
+$display-headings: (
+  1: var(--display-1),                        // Largest display heading
+  2: var(--display-2),                        // Second-largest display heading
+  3: var(--display-3),                        // Third-largest display heading
+  4: var(--display-4),                        // Fourth-largest display heading
+  5: var(--display-5),                        // Fifth-largest display heading
+  6: var(--display-6)                         // Smallest display heading
+);
+
+@each $num, $size in $display-headings {
+  .display-#{$num} {
+    font-size: #{$size} !important;           // Overrides default font size
+  }
+}
+
+/* =========================================================================
+   Letter Spacing Utility Classes (.ls-*)
+   ========================================================================= */
+// Generates utility classes for applying letter spacing (e.g., .ls-xs).
+
+$letter-spacing: (
+  xs: var(--ls-xs),                          // Extra-small letter spacing
+  sm: var(--ls-sm),                          // Small letter spacing
+  md: var(--ls-md),                          // Medium letter spacing
+  lg: var(--ls-lg),                          // Large letter spacing
+  xl: var(--ls-xl),                          // Extra-large letter spacing
+  2xl: var(--ls-2xl)                         // Double extra-large letter spacing
+);
+
+@each $size, $space in $letter-spacing {
+  .ls-#{$size} {
+    letter-spacing: #{$space};                // Applies specified letter spacing
+  }
+}
+
+/* =========================================================================
+   Anchor Link Styles
+   ========================================================================= */
+// Defines default and interactive styles for anchor (<a>) elements.
+
+a {
+  color: var(--blue-700);                     // Default link color
+  text-decoration: none;                      // Removes default underline
+
+  &:hover,
+  &:focus {
+    color: var(--blue-900);                   // Darker blue on hover/focus
+  }
+
+  &.underline {
+    text-decoration: underline;               // Adds underline for .underline class
+
+    &:hover,
+    &:focus {
+      color: var(--blue-900);                 // Darker blue on hover/focus
+    }
+  }
+
+  &.hover-underline {
+    color: var(--blue-700);                   // Default color for hover-underline links
+    text-decoration: none;                    // No default underline
+    position: relative;                       // Enables pseudo-element positioning
+
+    &:hover,
+    &:focus {
+      color: var(--blue-900);                 // Darker blue on hover/focus
+    }
+  }
+}
+
+/* =========================================================================
+   Lead Text Utility (.lead)
+   ========================================================================= */
+// Defines styles for lead paragraph text.
+
+.lead {
+  font-size: var(--text-lead) !important;     // Applies lead text size
+  font-weight: 400 !important;                // Normal font weight for lead text
+}
+
+/* =========================================================================
+   Base Body Font Size
+   ========================================================================= */
+// Sets the default font size for the body element.
+
+body {
+  --base-font-size: var(--text-base);         // Base font size for body text
+  font-size: var(--base-font-size);           // Applies base font size
+}

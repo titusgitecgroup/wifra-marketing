@@ -1,0 +1,132 @@
+/* =========================================================================
+   Spacing Utility Classes
+   ========================================================================= */
+// Defines utility classes for margins and paddings, including positive and negative
+// values, with a comprehensive scale for precise layout control.
+
+$spacing-values: (
+  "0": 0,                                    // No spacing
+  "1": 0.25rem,                              // 4px
+  "2": 0.5rem,                               // 8px
+  "3": 1rem,                                 // 16px
+  "4": 1.5rem,                               // 24px
+  "5": 2rem,                                 // 32px
+  "6": 2.5rem,                               // 40px
+  "7": 3rem,                                 // 48px
+  "8": 3.5rem,                               // 56px
+  "9": 4rem,                                 // 64px
+  "10": 4.5rem,                              // 72px
+  "11": 5rem,                                // 80px
+  "12": 5.5rem,                              // 88px
+  "13": 6rem,                                // 96px
+  "14": 6.5rem,                              // 104px
+  "15": 7.5rem,                              // 120px
+  "16": 8.5rem,                              // 136px
+  "17": 9.5rem,                              // 152px
+  "18": 10.5rem,                             // 168px
+  "19": 11.5rem,                             // 184px
+  "20": 12.5rem                              // 200px
+);
+
+@each $index, $value in $spacing-values {
+  // Margin Utilities
+  .m-#{$index} { margin: $value !important; }               // All margins
+  .mx-#{$index} { margin-left: $value !important; margin-right: $value !important; } // Horizontal margins
+  .my-#{$index} { margin-top: $value !important; margin-bottom: $value !important; } // Vertical margins
+  .mt-#{$index} { margin-top: $value !important; }          // Top margin
+  .me-#{$index} { margin-right: $value !important; }        // Right margin
+  .mb-#{$index} { margin-bottom: $value !important; }       // Bottom margin
+  .ms-#{$index} { margin-left: $value !important; }         // Left margin
+
+  // Negative Margin Utilities
+  .m-n#{$index} { margin: -$value !important; }             // Negative all margins
+  .mx-n#{$index} { margin-left: -$value !important; margin-right: -$value !important; } // Negative horizontal margins
+  .my-n#{$index} { margin-top: -$value !important; margin-bottom: -$value !important; } // Negative vertical margins
+  .mt-n#{$index} { margin-top: -$value !important; }        // Negative top margin
+  .me-n#{$index} { margin-right: -$value !important; }      // Negative right margin
+  .mb-n#{$index} { margin-bottom: -$value !important; }     // Negative bottom margin
+  .ms-n#{$index} { margin-left: -$value !important; }       // Negative left margin
+
+  // Padding Utilities
+  .p-#{$index} { padding: $value !important; }              // All paddings
+  .px-#{$index} { padding-left: $value !important; padding-right: $value !important; } // Horizontal paddings
+  .py-#{$index} { padding-top: $value !important; padding-bottom: $value !important; } // Vertical paddings
+  .pt-#{$index} { padding-top: $value !important; }         // Top padding
+  .pe-#{$index} { padding-right: $value !important; }       // Right padding
+  .pb-#{$index} { padding-bottom: $value !important; }      // Bottom padding
+  .ps-#{$index} { padding-left: $value !important; }        // Left padding
+}
+
+/* =========================================================================
+   Responsive Spacing Utilities
+   ========================================================================= */
+// Generates responsive margin and padding classes for different breakpoints.
+
+$breakpoints: (
+  "sm": 576px,                               // Small breakpoint
+  "md": 768px,                               // Medium breakpoint
+  "lg": 992px,                               // Large breakpoint
+  "xl": 1200px,                              // Extra-large breakpoint
+  "2xl": 1400px                              // Double extra-large breakpoint
+);
+
+$spacing-values: (
+  0: 0rem,                                   // No spacing
+  1: 0.25rem,                                // 4px
+  2: 0.5rem,                                 // 8px
+  3: 1rem,                                   // 16px
+  4: 1.5rem,                                 // 24px
+  5: 2rem,                                   // 32px
+  6: 2.5rem,                                 // 40px
+  7: 3rem,                                   // 48px
+  8: 3.5rem,                                 // 56px
+  9: 4rem,                                   // 64px
+  10: 4.5rem,                                // 72px
+  11: 5rem,                                  // 80px
+  12: 5.5rem,                                // 88px
+  13: 6rem,                                  // 96px
+  14: 6.5rem,                                // 104px
+  15: 7.5rem,                                // 120px
+  16: 8.5rem,                                // 136px
+  17: 9.5rem,                                // 152px
+  18: 10.5rem,                               // 168px
+  19: 11.5rem,                               // 184px
+  20: 12.5rem                                // 200px
+);
+
+@mixin generate-spacing($prefix) {
+  @each $key, $value in $spacing-values {
+    // Responsive Margin Utilities
+    .m-#{$prefix}-#{$key} { margin: $value !important; }               // All margins
+    .mx-#{$prefix}-#{$key} { margin-left: $value !important; margin-right: $value !important; } // Horizontal margins
+    .my-#{$prefix}-#{$key} { margin-top: $value !important; margin-bottom: $value !important; } // Vertical margins
+    .mt-#{$prefix}-#{$key} { margin-top: $value !important; }          // Top margin
+    .me-#{$prefix}-#{$key} { margin-right: $value !important; }        // Right margin
+    .mb-#{$prefix}-#{$key} { margin-bottom: $value !important; }       // Bottom margin
+    .ms-#{$prefix}-#{$key} { margin-left: $value !important; }         // Left margin
+
+    // Responsive Negative Margin Utilities
+    .m-#{$prefix}-n#{$key} { margin: -$value !important; }             // Negative all margins
+    .mx-#{$prefix}-n#{$key} { margin-left: -$value !important; margin-right: -$value !important; } // Negative horizontal margins
+    .my-#{$prefix}-n#{$key} { margin-top: -$value !important; margin-bottom: -$value !important; } // Negative vertical margins
+    .mt-#{$prefix}-n#{$key} { margin-top: -$value !important; }        // Negative top margin
+    .me-#{$prefix}-n#{$key} { margin-right: -$value !important; }      // Negative right margin
+    .mb-#{$prefix}-n#{$key} { margin-bottom: -$value !important; }     // Negative bottom margin
+    .ms-#{$prefix}-n#{$key} { margin-left: -$value !important; }       // Negative left margin
+
+    // Responsive Padding Utilities
+    .p-#{$prefix}-#{$key} { padding: $value !important; }              // All paddings
+    .px-#{$prefix}-#{$key} { padding-left: $value !important; padding-right: $value !important; } // Horizontal paddings
+    .py-#{$prefix}-#{$key} { padding-top: $value !important; padding-bottom: $value !important; } // Vertical paddings
+    .pt-#{$prefix}-#{$key} { padding-top: $value !important; }         // Top padding
+    .pe-#{$prefix}-#{$key} { padding-right: $value !important; }       // Right padding
+    .pb-#{$prefix}-#{$key} { padding-bottom: $value !important; }      // Bottom padding
+    .ps-#{$prefix}-#{$key} { padding-left: $value !important; }        // Left padding
+  }
+}
+
+@each $bp, $size in $breakpoints {
+  @media (min-width: $size) {
+    @include generate-spacing($bp);          // Generates spacing classes for breakpoint
+  }
+}

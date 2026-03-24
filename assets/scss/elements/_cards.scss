@@ -1,0 +1,125 @@
+/* =========================================================================
+   Card Styles
+   ========================================================================= */
+// Defines styles for blog card components with text truncation for headings and
+// paragraphs, tailored for different blog layouts (v1, v2, and sidebar).
+
+#blog-v1 {
+  & .heading {
+    display: -webkit-box;                      // Enable line clamping
+    line-clamp: 4;                             // Limit to 4 lines
+    -webkit-line-clamp: 4;                     // WebKit line clamp
+    box-orient: vertical;                      // Vertical orientation
+    -webkit-box-orient: vertical;              // WebKit vertical orientation
+    overflow: hidden;                          // Hide overflow text
+    margin-bottom: 0;                          // No bottom margin
+    max-height: 120px;                         // Max height for 4 lines
+    min-height: 120px;                         // Min height for consistency
+  }
+
+  & p {
+    display: -webkit-box;                      // Enable line clamping
+    line-clamp: 3;                             // Limit to 3 lines
+    -webkit-line-clamp: 3;                     // WebKit line clamp
+    box-orient: vertical;                      // Vertical orientation
+    -webkit-box-orient: vertical;              // WebKit vertical orientation
+    overflow: hidden;                          // Hide overflow text
+    margin-bottom: 0;                          // No bottom margin
+    max-height: 72px;                          // Max height for 3 lines
+    min-height: 72px;                          // Min height for consistency
+  }
+}
+
+#blog-v2 {
+  & .heading {
+    display: -webkit-box;                      // Enable line clamping
+    line-clamp: 2;                             // Limit to 2 lines
+    -webkit-line-clamp: 2;                     // WebKit line clamp
+    box-orient: vertical;                      // Vertical orientation
+    -webkit-box-orient: vertical;              // WebKit vertical orientation
+    overflow: hidden;                          // Hide overflow text
+    margin-bottom: 0;                          // No bottom margin
+    max-height: 70px;                          // Max height for 2 lines
+    min-height: 36px;                          // Min height for consistency
+  }
+
+  & p {
+    display: -webkit-box;                      // Enable line clamping
+    line-clamp: 2;                             // Limit to 2 lines
+    -webkit-line-clamp: 2;                     // WebKit line clamp
+    box-orient: vertical;                      // Vertical orientation
+    -webkit-box-orient: vertical;              // WebKit vertical orientation
+    overflow: hidden;                          // Hide overflow text
+    margin-bottom: 0;                          // No bottom margin
+    max-height: 48px;                          // Max height for 2 lines
+    min-height: 48px;                          // Min height for consistency
+  }
+
+  & .small {
+    & .heading {
+      line-clamp: 2;                           // Limit to 2 lines
+      -webkit-line-clamp: 2;                   // WebKit line clamp
+      max-height: 44px;                        // Adjusted max height
+      min-height: 24px;                        // Adjusted min height
+    }
+
+    & p {
+      line-clamp: 1;                           // Limit to 1 line
+      -webkit-line-clamp: 1;                   // WebKit line clamp
+      max-height: 22px;                        // Max height for 1 line
+      min-height: 22px;                        // Min height for consistency
+    }
+  }
+  & .list {
+    & img {
+      max-width: 100%;
+    }
+  }
+}
+
+
+
+.sidebar #blog-v2 {
+  & .post-card {
+    & img {
+      max-width: 100%;                        // Constrain image width in sidebar
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .sidebar #blog-v2 {
+    & .post-card {
+      & img {
+        max-width: 240px;                        // Constrain image width in sidebar
+      }
+    }
+  }
+  #blog-v2 {
+    & .list {
+      & img {
+        max-width: 160px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .sidebar #blog-v2 {
+    & .post-card {
+      & img {
+        max-width: 140px;                        // Constrain image width in sidebar
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  #blog-v2 {
+    & .list {
+      & img {
+        max-width: 200px;
+      }
+    }
+  }
+}

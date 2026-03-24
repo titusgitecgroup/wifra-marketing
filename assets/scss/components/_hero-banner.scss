@@ -1,0 +1,19 @@
+/* =========================================================================
+   Hero Banner Styles
+   ========================================================================= */
+// Defines styles for hero banner components with decorative background overlays.
+// Used for prominent sections with image-based backgrounds and semi-transparent effects.
+
+.purple-light:after {
+  content: "";                                             // Pseudo-element for overlay
+  position: absolute;                                      // Absolute positioning to cover parent
+  height: 100%;                                            // Full height of parent
+  width: 100%;                                             // Full width of parent
+  opacity: 0.85;                                           // 85% opacity for subtle overlay
+  background: url(../images/app-landing/purple-light.webp);     // Background image for hero
+  background-size: cover;                                  // Scales image to cover container
+  background-position: bottom center;                      // Aligns image to bottom center
+  background-repeat: no-repeat;                            // Prevents image repetition
+  left: 0;                                                 // Aligns to left edge
+  top: 0;                                                  // Aligns to top edge
+}

@@ -1,0 +1,46 @@
+/* =========================================================================
+   Carousel Styles
+   ========================================================================= */
+// Defines styles for Owl Carousel components, including dot navigation and item scaling effects.
+// Targets the #appIntro carousel for specific layout and animation adjustments.
+
+/* =========================================================================
+   Owl Carousel Dot Navigation
+   ========================================================================= */
+   .owl-theme .owl-dots .owl-dot span {
+    width: 24px;                                 // Dot width
+    height: 3px;                                 // Dot height
+    border-radius: 10px;                         // Rounded dot shape
+  }
+  
+  /* =========================================================================
+     App Intro Carousel
+     ========================================================================= */
+  #appIntro {
+    & .owl-item {
+      -webkit-transition: 0.3s;                  // Smooth transition for scaling (WebKit)
+      -o-transition: 0.3s;                       // Smooth transition (Opera)
+      transition: 0.3s;                          // Standard transition (300ms)
+      -webkit-transform: scale(1);               // Default scale (WebKit)
+      -ms-transform: scale(1);                   // Default scale (Microsoft)
+      transform: scale(1);                       // Default scale
+      &.center {
+        position: relative;                      // Relative positioning for z-index
+        z-index: 1;                              // Above other items
+        -webkit-transform: scale(1.2);           // Scale up center item (WebKit)
+        -ms-transform: scale(1.2);      // Scale up center item (Microsoft)
+        transform: scale(1.2);                   // Scale up center item (120%)
+      }
+      &.active {
+        opacity: .8;                        // Reduced opacity for active non-center items
+      }
+      &.active.center {
+        opacity: 1;                         // Full opacity for active center item
+      }
+    }
+  
+    // Carousel Item Spacing
+    .owl-item {
+      padding: 50px 0;                           // Vertical padding (50px)
+    }
+  }

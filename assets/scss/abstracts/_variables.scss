@@ -1,0 +1,580 @@
+:root {
+  // =========================================================================
+  // Color Palette Definitions
+  // =========================================================================
+  // Defines a comprehensive set of color variables for consistent theming.
+  // Follows a 6-step contrast rule: Background and foreground colors should differ
+  // by at least 6 steps (e.g., slate-300 background pairs with slate-900 text).
+
+  // Core Colors
+  --white: #ffffff;                          // Pure white
+  --black: #000000;                          // Pure black
+  --white-rgb: 255,255,255;                    // White RGB values for opacity adjustments
+  --black-rgb: 0,0,0;                          // Black RGB values for opacity adjustments
+
+  // Theme Colors
+  --light: var(--white);                       // Default light theme color
+  --light-dark: var(--neutral-100);            // Slightly darker light shade
+  --light-rgb: var(--white-rgb);               // Light theme RGB for calculations
+
+  --dark: var(--neutral-950);                  // Default dark theme color
+  --dark-dark: var(--black);                   // Darker shade for dark theme
+  --dark-rgb: var(--black-rgb);                // Dark theme RGB for calculations
+
+  // Semantic Colors
+  --primary: var(--blue-700);                  // Primary brand color
+  --primary-dark: var(--blue-800);             // Darker primary shade for hover/focus
+  --primary-rgb: var(--blue-rgb);              // Primary RGB for opacity adjustments
+
+  --secondary: var(--gray-700);                // Secondary color for supporting elements
+  --secondary-dark: var(--gray-800);           // Darker secondary shade
+  --secondary-rgb: var(--gray-rgb);            // Secondary RGB for calculations
+
+  --success: var(--green-700);                 // Success state color (e.g., confirmations)
+  --success-dark: var(--green-800);            // Darker success shade
+  --success-rgb: var(--green-rgb);             // Success RGB for opacity
+
+  --danger: var(--red-700);                    // Error or danger state color
+  --danger-dark: var(--red-800);               // Darker danger shade
+  --danger-rgb: var(--red-rgb);                // Danger RGB for opacity
+
+  --warning: var(--yellow-500);                // Warning state color
+  --warning-dark: var(--yellow-600);           // Darker warning shade
+  --warning-rgb: var(--yellow-rgb);            // Warning RGB for opacity
+
+  --info: var(--sky-400);                      // Informational state color
+  --info-dark: var(--sky-500);                 // Darker info shade
+  --info-rgb: var(--sky-rgb);                  // Info RGB for opacity
+
+  // Red Color Scale
+  --red-rgb: 177,30,27;                       // Base RGB for red shades
+  --red-50: #FCF3F2;                          // Lightest red shade
+  --red-100: #FAE3E2;                         // Very light red
+  --red-200: #F7CCCB;                         // Light red
+  --red-300: #F4A6A5;                         // Medium-light red
+  --red-400: #EE6E6C;                         // Medium red
+  --red-500: #E64341;                         // Standard red
+  --red-600: #D42422;                         // Medium-dark red
+  --red-700: #B11E1B;                         // Dark red
+  --red-800: #911F1C;                         // Very dark red
+  --red-900: #77221F;                         // Deep red
+  --red-950: #400E0C;                         // Darkest red
+
+  // Orange Color Scale
+  --orange-rgb: 186,66,13;                    // Base RGB for orange shades
+  --orange-50: #FEF7EE;                       // Lightest orange shade
+  --orange-100: #FCEED7;                      // Very light orange
+  --orange-200: #F9D8AD;                      // Light orange
+  --orange-300: #F7BB76;                      // Medium-light orange
+  --orange-400: #F28F36;                      // Medium orange
+  --orange-500: #F17313;                      // Standard orange
+  --orange-600: #E25706;                      // Medium-dark orange
+  --orange-700: #BA420D;                      // Dark orange
+  --orange-800: #933615;                      // Very dark orange
+  --orange-900: #753017;                      // Deep orange
+  --orange-950: #3E160A;                      // Darkest orange
+
+  // Amber Color Scale
+  --amber-rgb: 173,84,13;                     // Base RGB for amber shades
+  --amber-50: #FEFBEC;                        // Lightest amber shade
+  --amber-100: #FCF3CB;                       // Very light amber
+  --amber-200: #FAE792;                       // Light amber
+  --amber-300: #F8D455;                       // Medium-light amber
+  --amber-400: #F5BC1E;                       // Medium amber
+  --amber-500: #F09E0F;                       // Standard amber
+  --amber-600: #D37709;                       // Medium-dark amber
+  --amber-700: #AD540D;                       // Dark amber
+  --amber-800: #8C4113;                       // Very dark amber
+  --amber-900: #723715;                       // Deep amber
+  --amber-950: #401C07;                       // Darkest amber
+
+  // Yellow Color Scale
+  --yellow-rgb: 156,99,15;                    // Base RGB for yellow shades
+  --yellow-50: #FEFCEA;                       // Lightest yellow shade
+  --yellow-100: #FDF9C8;                      // Very light yellow
+  --yellow-200: #FCF194;                      // Light yellow
+  --yellow-300: #FBE152;                      // Medium-light yellow
+  --yellow-400: #F5CA0F;                      // Medium yellow
+  --yellow-500: #E6B313;                      // Standard yellow
+  --yellow-600: #C68A0B;                      // Medium-dark yellow
+  --yellow-700: #9C630F;                      // Dark yellow
+  --yellow-800: #804E13;                      // Very dark yellow
+  --yellow-900: #6C4018;                      // Deep yellow
+  --yellow-950: #3E210B;                      // Darkest yellow
+
+  // Lime Color Scale
+  --lime-rgb: 85,124,24;                      // Base RGB for lime shades
+  --lime-50: #F8FEE9;                         // Lightest lime shade
+  --lime-100: #EFFCCF;                        // Very light lime
+  --lime-200: #DFF8A4;                        // Light lime
+  --lime-300: #C7F26C;                        // Medium-light lime
+  --lime-400: #ABE435;                        // Medium lime
+  --lime-500: #8FCC21;                        // Standard lime
+  --lime-600: #6FA12A;                           // Medium-dark lime
+  --lime-700: #557C18;                        // Dark lime
+  --lime-800: #456219;                        // Very dark lime
+  --lime-900: #3C531B;                        // Deep lime
+  --lime-950: #1E2E0A;                        // Darkest lime 
+
+  // Green Color Scale
+  --green-rgb: 51,128,63;                     // Base RGB for green shades
+  --green-50: #F2FDF5;                        // Lightest green shade
+  --green-100: #E2FBE8;                       // Very light green
+  --green-200: #C6F6D2;                       // Light green
+  --green-300: #99EFAE;                       // Medium-light green
+  --green-400: #66DC7E;                       // Medium green
+  --green-500: #4FC65F;                       // Standard green
+  --green-600: #3EA34B;                       // Medium-dark green
+  --green-700: #33803F;                       // Dark green
+  --green-800: #2B6536;                       // Very dark green
+  --green-900: #26532F;                       // Deep green
+  --green-950: #112D18;                       // Darkest green
+
+  // Emerald Color Scale
+  --emerald-rgb: 42,120,88;                   // Base RGB for emerald shades
+  --emerald-50: #EFFCF5;                      // Lightest emerald shade
+  --emerald-100: #D8F9E6;                     // Very light emerald
+  --emerald-200: #B6F2D2;                     // Light emerald
+  --emerald-300: #86E6B8;                     // Medium-light emerald
+  --emerald-400: #55D197;                     // Medium emerald
+  --emerald-500: #44B982;                     // Standard emerald
+  --emerald-600: #35966A;                     // Medium-dark emerald
+  --emerald-700: #2A7858;                     // Dark emerald
+  --emerald-800: #235F47;                     // Very dark emerald
+  --emerald-900: #1E4D3C;                     // Deep emerald
+  --emerald-950: #0E2B22;                     // Darkest emerald
+
+  // Teal Color Scale
+  --teal-rgb: 44,118,111;                     // Base RGB for teal shades
+  --teal-50: #F3FDFA;                         // Lightest teal shade
+  --teal-100: #D5FAF1;                        // Very light teal
+  --teal-200: #ACF4E4;                        // Light teal
+  --teal-300: #7CE9D5;                        // Medium-light teal
+  --teal-400: #52D2BE;                        // Medium teal
+  --teal-500: #44B8A7;                        // Standard teal
+  --teal-600: #359489;                        // Medium-dark teal
+  --teal-700: #2C766F;                        // Dark teal
+  --teal-800: #255E59;                        // Very dark teal
+  --teal-900: #234D4A;                        // Deep teal
+  --teal-950: #112E2E;                        // Darkest teal
+
+  // Cyan Color Scale
+  --cyan-rgb: 42,115,46;                      // Base RGB for cyan shades
+  --cyan-50: #EFFDFF;                         // Lightest cyan shade
+  --cyan-100: #D fused #D7F9FD;                 // Very light cyan
+  --cyan-200: #B4F2FB;                        // Light cyan
+  --cyan-300: #80E7FA;                        // Medium-light cyan
+  --cyan-400: #4BD0EE;                        // Medium cyan
+  --cyan-500: #3FB5D7;                        // Standard cyan
+  --cyan-600: #3190B4;                        // Medium-dark cyan
+  --cyan-700: #2A7392;                        // Dark cyan
+  --cyan-800: #275D76;                        // Very dark cyan
+  --cyan-900: #244D62;                        // Deep cyan
+  --cyan-950: #153243;                        // Darkest cyan
+
+  // Sky Color Scale
+  --sky-rgb: 35,103,163;                      // Base RGB for sky shades
+  --sky-50: #F1F9FF;                          // Lightest sky shade
+  --sky-100: #E3F1FD;                         // Very light sky
+  --sky-200: #C1E5FC;                         // Light sky
+  --sky-300: #8BD2FD;                         // Medium-light sky
+  --sky-400: #4EB9FA;                         // Medium sky
+  --sky-500: #38A3EE;                         // Standard sky
+  --sky-600: #2982CB;                         // Medium-dark sky
+  --sky-700: #2167A3;                         // Dark sky
+  --sky-800: #1F5786;                         // Very dark sky
+  --sky-900: #1D496D;                         // Deep sky
+  --sky-950: #132E48;                         // Darkest sky
+
+  // Blue Color Scale
+  --blue-rgb: 35,70,221;                      // Base RGB for blue shades
+  --blue-50: #F0F6FE;                         // Lightest blue shade
+  --blue-100: #DEEAFC;                        // Very light blue
+  --blue-200: #C4DAFC;                        // Light blue
+  --blue-300: #9AC4FD;                        // Medium-light blue
+  --blue-400: #65A0FD;                        // Medium blue
+  --blue-500: #447DFC;                        // Standard blue
+  --blue-600: #2D5CF2;                        // Medium-dark blue
+  --blue-700: #2346DD;                        // Dark blue
+  --blue-800: #233889;                        // Very dark blue
+  --blue-900: #223BB1;                        // Deep blue
+  --blue-950: #192452;                        // Darkest blue
+
+  // Indigo Color Scale
+  --indigo-rgb: 64,46,207;                    // Base RGB for indigo shades
+  --indigo-50: #EFF2FE;                       // Lightest indigo shade
+  --indigo-100: #E1E7FD;                      // Very light indigo
+  --indigo-200: #C9D2FC;                      // Light indigo
+  --indigo-300: #A6B3FD;                      // Medium-light indigo
+  --indigo-400: #7E86FB;                      // Medium indigo
+  --indigo-500: #615FF8;                      // Standard indigo
+  --indigo-600: #4C3AED;                      // Medium-dark indigo
+  --indigo-700: #402ECF;                      // Dark indigo
+  --indigo-800: #352AA5;                      // Very dark indigo
+  --indigo-900: #302C80;                      // Deep indigo
+  --indigo-950: #1D1A4A;                      // Darkest indigo
+
+  // Violet Color Scale
+  --violet-rgb: 102,21,222;                   // Base RGB for violet shades
+  --violet-50: #F5F3FE;                       // Lightest violet shade
+  --violet-100: #ECE9FC;                      // Very light violet
+  --violet-200: #DCD6FC;                      // Light violet
+  --violet-300: #C2B4FD;                      // Medium-light violet
+  --violet-400: #A185FC;                      // Medium violet
+  --violet-500: #8554FD;                      // Standard violet
+  --violet-600: #7529F4;                      // Medium-dark violet
+  --violet-700: #6615DE;                      // Dark violet
+  --violet-800: #5516B9;                      // Very dark violet
+  --violet-900: #471A94;                      // Deep violet
+  --violet-950: #2B0F63;                      // Darkest violet
+
+  // Purple Color Scale
+  --purple-rgb: 119,17,210;                   // Base RGB for purple shades
+  --purple-50: #F9F5FE;                       // Lightest purple shade
+  --purple-100: #F1E8FD;                      // Very light purple
+  --purple-200: #E6D5FD;                      // Light purple
+  --purple-300: #D4B3FE;                      // Medium-light purple
+  --purple-400: #B87EFE;                      // Medium purple
+  --purple-500: #A14DFD;                      // Standard purple
+  --purple-600: #8B21F1;                      // Medium-dark purple
+  --purple-700: #7711D2;                      // Dark purple
+  --purple-800: #641AA9;                      // Very dark purple
+  --purple-900: #521B86;                      // Deep purple
+  --purple-950: #360862;                      // Darkest purple
+
+  // Fuchsia Color Scale
+  --fuchsia-rgb: 153,20,177;                  // Base RGB for fuchsia shades
+  --fuchsia-50: #FBF4FE;                      // Lightest fuchsia shade
+  --fuchsia-100: #F7E8FE;                     // Very light fuchsia
+  --fuchsia-200: #F0D1FC;                     // Light fuchsia
+  --fuchsia-300: #E8ABFB;                     // Medium-light fuchsia
+  --fuchsia-400: #DD72FA;                     // Medium fuchsia
+  --fuchsia-500: #CF3EF3;                     // Standard fuchsia
+  --fuchsia-600: #B715D6;                     // Medium-dark fuchsia
+  --fuchsia-700: #9914B1;                     // Dark fuchsia
+  --fuchsia-800: #7E178F;                     // Very dark fuchsia
+  --fuchsia-900: #691D74;                     // Deep fuchsia
+  --fuchsia-950: #44084C;                     // Darkest fuchsia
+
+  // Pink Color Scale
+  --pink-rgb: 181,26,91;                      // Base RGB for pink shades
+  --pink-50: #FBF2F7;                         // Lightest pink shade
+  --pink-100: #F9E8F2;                        // Very light pink
+  --pink-200: #F5D0E7;                        // Light pink
+  --pink-300: #F1A9D3;                        // Medium-light pink
+  --pink-400: #E96EB3;                        // Medium pink
+  --pink-500: #E34798;                        // Standard pink
+  --pink-600: #D32475;                        // Medium-dark pink
+  --pink-700: #B51A5B;                        // Dark pink
+  --pink-800: #951B4C;                        // Very dark pink
+  --pink-900: #7B1E42;                        // Deep pink
+  --pink-950: #4A0D24;                        // Darkest pink
+
+  // Rose Color Scale
+  --rose-rgb: 182,20,58;                      // Base RGB for rose shades
+  --rose-50: #FCF1F2;                         // Lightest rose shade
+  --rose-100: #FAE5E6;                        // Very light rose
+  --rose-200: #F7CED3;                        // Light rose
+  --rose-300: #F5A5AE;                        // Medium-light rose
+  --rose-400: #F06E80;                        // Medium rose
+  --rose-500: #EB3D5B;                        // Standard rose
+  --rose-600: #D81A45;                        // Medium-dark rose
+  --rose-700: #B6143A;                        // Dark rose
+  --rose-800: #971838;                        // Very dark rose
+  --rose-900: #7F1B37;                        // Deep rose
+  --rose-950: #460A19;                        // Darkest rose
+
+  // Slate Color Scale
+  --slate-rgb: 53,65,86;                      // Base RGB for slate shades
+  --slate-50: #F8FAFB;                        // Lightest slate shade
+  --slate-100: #F2F5F9;                       // Very light slate
+  --slate-200: #E3E8F0;                       // Light slate
+  --slate-300: #CCD5E1;                       // Medium-light slate
+  --slate-400: #93A1B7;                       // Medium slate
+  --slate-500: #65738C;                       // Standard slate
+  --slate-600: #48556A;                       // Medium-dark slate
+  --slate-700: #354156;                       // Dark slate
+  --slate-800: #1F283B;                       // Very dark slate
+  --slate-900: #10172A;                       // Deep slate
+  --slate-950: #030616;                       // Darkest slate
+
+  // Gray Color Scale
+  --gray-rgb: 56,65,81;                       // Base RGB for gray shades
+  --gray-50: #F9FAFB;                         // Lightest gray shade
+  --gray-100: #F3F4F6;                        // Very light gray
+  --gray-200: #E5E7EB;                        // Light gray
+  --gray-300: #D2D5DB;                        // Medium-light gray
+  --gray-400: #9AA1AD;                        // Medium gray
+  --gray-500: #6B7281;                        // Standard gray
+  --gray-600: #4C5564;                        // Medium-dark gray
+  --gray-700: #384151;                        // Dark gray
+  --gray-800: #202937;                        // Very dark gray
+  --gray-900: #121827;                        // Deep gray
+  --gray-950: #040711;                        // Darkest gray
+
+  // Zinc Color Scale
+  --zinc-rgb: 63,63,70;                       // Base RGB for zinc shades
+  --zinc-50: #FAFAFA;                         // Lightest zinc shade
+  --zinc-100: #F4F4F5;                        // Very light zinc
+  --zinc-200: #E4E4E7;                        // Light zinc
+  --zinc-300: #D4D4D8;                        // Medium-light zinc
+  --zinc-400: #9F9FA8;                        // Medium zinc
+  --zinc-500: #71717A;                        // Standard zinc
+  --zinc-600: #52525B;                        // Medium-dark zinc
+  --zinc-700: #3F3F46;                        // Dark zinc
+  --zinc-800: #27272A;                        // Very dark zinc
+  --zinc-900: #18181B;                        // Deep zinc
+  --zinc-950: #09090B;                        // Darkest zinc
+
+  // Neutral Color Scale
+  --neutral-rgb: 64,64,64;                    // Base RGB(c) for neutral shades
+  --neutral-50: #FAFAFA;                      // Lightest neutral shade
+  --neutral-100: #F5F5F5;                     // Very light neutral
+  --neutral-200: #E5E5E5;                     // Light neutral
+  --neutral-300: #D4D4D4;                     // Medium-light neutral
+  --neutral-400: #A1A1A1;                     // Medium neutral
+  --neutral-500: #737373;                     // Standard neutral
+  --neutral-600: #525252;                     // Medium-dark neutral
+  --neutral-700: #404040;                     // Dark neutral
+  --neutral-800: #262626;                     // Very dark neutral
+  --neutral-900: #171717;                     // Deep neutral
+  --neutral-950: #0A0A0A;                     // Darkest neutral
+
+  // Stone Color Scale
+  --stone-rgb: 68,64,60;                      // Base RGB for stone shades
+  --stone-50: #FAFAF9;                        // Lightest stone shade
+  --stone-100: #F5F5F4;                       // Very light stone
+  --stone-200: #E7E5E4;                       // Light stone
+  --stone-300: #D6D3D1;                       // Medium-light stone
+  --stone-400: #A5A09C;                       // Medium stone
+  --stone-500: #77716C;                       // Standard stone
+  --stone-600: #57534E;                       // Medium-dark stone
+  --stone-700: #44403C;                       // Dark stone
+  --stone-800: #282524;                       // Very dark stone
+  --stone-900: #1B1917;                       // Deep stone
+  --stone-950: #0C0A09;                       // Darkest stone
+
+  // Brand-Specific Colors
+  --facebook: #4267B2;                        // Facebook brand color
+  --instagram: #C13584;                       // Instagram brand color
+  --linkedin: #0A66C2;                        // LinkedIn brand color
+  --x: #14171A;                               // X brand color
+  --youtube: #FF0000;                         // YouTube brand color
+  --pinterest: #E60023;                       // Pinterest brand color
+  --dribbble: #E94C88;                        // Dribbble brand color
+  --reddit: #FF4500;                          // Reddit brand color
+  --whatsapp: #28D146;                        // WhatsApp brand color
+  --yelp: #FF1A1A;                            // Yelp brand color
+  --tumblr: #35465C;                          // Tumblr brand color
+  --medium: #000000;                          // Medium brand color
+  --quora: #B92B27;                           // Quora brand color
+  --discord: #5865F2;                         // Discord brand color
+  --twitch: #9146FF;                          // Twitch brand color
+  --vimo: #19B7EA;                            // Vimeo brand color
+  --threads: #000000;                         // Threads brand color
+  --airbnb: #FF585D;                          // Airbnb brand color
+  --skype: #009EDC;                           // Skype brand color
+  --slack: #4A154B;                           // Slack brand color
+  --intercom: #041527;                        // Intercom brand color
+  --facebook-rgb: 66, 103, 178;               // Facebook RGB values
+  --instagram-rgb: 193, 53, 132;              // Instagram RGB values
+  --linkedin-rgb: 10, 102, 194;               // LinkedIn RGB values
+  --x-rgb: 20, 23, 26;                        // X RGB values
+  --youtube-rgb: 255, 0, 0;                   // YouTube RGB values
+  --pinterest-rgb: 230, 0, 35;                // Pinterest RGB values
+  --dribbble-rgb: 233, 76, 136;               // Dribbble RGB values
+  --reddit-rgb: 255, 69, 0;                   // Reddit RGB values
+  --whatsapp-rgb: 40, 209, 70;                // WhatsApp RGB values
+  --yelp-rgb: 255, 26, 26;                    // Yelp RGB values
+  --tumblr-rgb: 53, 70, 92;                   // Tumblr RGB values
+  --medium-rgb: 0, 0, 0;                      // Medium RGB values
+  --quora-rgb: 185, 43, 39;                   // Quora RGB values
+  --discord-rgb: 88, 101, 242;                // Discord RGB values
+  --twitch-rgb: 145, 70, 255;                 // Twitch RGB values
+  --vimo-rgb: 25, 183, 234;                   // Vimeo RGB values
+  --threads-rgb: 0, 0, 0;                     // Threads RGB values
+  --airbnb-rgb: 255, 88, 93;                  // Airbnb RGB values
+  --skype-rgb: 0, 158, 220;                   // Skype RGB values
+  --slack-rgb: 74, 21, 75;                    // Slack RGB values
+  --intercom-rgb: 4, 21, 39;                  // Intercom RGB values
+
+  // =========================================================================
+  // Font Family Definitions
+  // =========================================================================
+  // Specifies font families for different typography styles.
+
+  // Serif Font
+  --font-serif: "Playfair Display", serif;     // Elegant serif font for headings or decorative text
+
+  // Sans-Serif Fonts
+  --font-sans-serif: "Montserrat", sans-serif;  // Modern sans-serif font for general use
+  --font-primary: "Inter", sans-serif;          // Primary sans-serif font for body text
+
+  // Specialty Fonts
+  --font-handwriting: "Caveat", cursive;        // Handwritten-style font for informal text
+  --font-monospace: "Anonymous Pro", monospace; // Monospace font for code or technical text
+
+  // =========================================================================
+  // Font Size Definitions
+  // =========================================================================
+  // Defines font sizes for body text, headings, and buttons in rem units.
+
+  /* Body Text Sizes */
+  --text-xs: 0.75rem;                         // 12px
+  --text-sm: 0.875rem;                        // 14px
+  --text-md: 1.125rem;                        // 18px
+  --text-lg: 1.5rem;                          // 24px
+  --text-xl: 2rem;                            // 32px
+  --text-2xl: 2.5rem;                         // 40px
+  --text-base: 0.875rem;                      // 14px
+  --text-lead: var(--text-md);                // 18px
+
+  /* Display Headings */
+  --display-1: 3.5rem;                        // 56px
+  --display-2: 3rem;                          // 48px
+  --display-3: 2.5rem;                        // 40px
+  --display-4: 2.25rem;                       // 36px
+  --display-5: 2rem;                          // 32px
+  --display-6: 1.75rem;                       // 28px
+
+  /* Headings */
+  --h1: 1.75rem;                              // 28px
+  --h2: 1.5rem;                               // 24px
+  --h3: 1.25rem;                              // 20px
+  --h4: 1.125rem;                             // 18px
+  --h5: 1rem;                                 // 16px
+  --h6: 0.875rem;                             // 14px
+
+  /* Button Text */
+  --btn-sm-text: 0.75rem;                     // 12px
+  --btn-text: 0.875rem;                       // 14px
+  --btn-xl-text: 1rem;                        // 16px
+
+  // =========================================================================
+  // Letter Spacing Definitions
+  // =========================================================================
+  // Defines letter spacing values for typography adjustments in rem units.
+
+  --ls-xs: 0.125rem;                          // Extra-small letter spacing (2px)
+  --ls-sm: 0.25rem;                           // Small letter spacing (4px)
+  --ls-md: 0.5rem;                            // Medium letter spacing (8px)
+  --ls-lg: 0.75rem;                           // Large letter spacing (12px)
+  --ls-xl: 1rem;                              // Extra-large letter spacing (16px)
+  --ls-2xl: 1.25rem;                          // Double extra-large letter spacing (20px)
+
+  // =========================================================================
+  // Opacity Definitions
+  // =========================================================================
+  // Defines opacity levels for transparency effects.
+
+  --opacity-0: 0;                             // Fully transparent
+  --opacity-05: .05;                          // 5% opacity
+  --opacity-10: .1;                           // 10% opacity
+  --opacity-20: .2;                           // 20% opacity
+  --opacity-30: .3;                           // 30% opacity
+  --opacity-40: .4;                           // 40% opacity
+  --opacity-50: .5;                           // 50% opacity
+  --opacity-60: .6;                           // 60% opacity
+  --opacity-70: .7;                           // 70% opacity
+  --opacity-80: .8;                           // 80% opacity
+  --opacity-90: .9;                           // 90% opacity
+  --opacity-1: 1;                             // Fully opaque
+
+  // =========================================================================
+  // Button Sizing Definitions
+  // =========================================================================
+  // Defines padding and height for buttons in various sizes.
+
+  // Small Button
+  --btn-sm-padding-x: .5rem;                  // Small button horizontal padding (8px)
+  --btn-sm-padding-y: 0.25rem;                // Small button vertical padding (4px)
+  --btn-sm-size: 2rem;                        // Small button height (32px)
+
+  // Default Button
+  --btn-padding-x: 1rem;                      // Default button horizontal padding (16px)
+  --btn-padding-y: 0.25rem;                   // Default button vertical padding (4px)
+  --btn-size: 2.375rem;                       // Default button height (38px)
+
+  // Large Button
+  --btn-lg-padding-x: 1rem;                 // Large button horizontal padding (24px)
+  --btn-lg-padding-y: 0.25rem;                // Large button vertical padding (4px)
+  --btn-lg-size: 2.75rem;                        // Large button height (48px)
+
+  // Extra-Large Button
+  --btn-xl-padding-x: 1.25rem;                 // Extra-large button horizontal padding (24px)
+  --btn-xl-padding-y: 0.25rem;                // Extra-large button vertical padding (4px)
+  --btn-xl-size: 3rem;                    // Extra-large button height (58px)
+}
+
+// =========================================================================
+// Responsive Typography Adjustments
+// =========================================================================
+// Implementing responsive font size adjustments to enhance readability on different screen sizes.
+
+/* ============================
+   Medium Devices (Tablets)
+   Min Width: 768px
+   ============================ */
+@media (min-width: 768px) {
+  :root {
+    --text-md: 1.125rem;                      // 18px
+    --text-lg: 1.625rem;                      // 26px
+    --text-xl: 2.25rem;                       // 36px
+    --text-2xl: 2.75rem;                      // 44px
+    --text-base: 1rem;                        // 16px
+    --text-lead: 1.125rem;                    // 18px
+
+    --display-1: 4.5rem;                      // 72px
+    --display-2: 4rem;                        // 64px
+    --display-3: 3.5rem;                      // 56px
+    --display-4: 3rem;                        // 48px
+    --display-5: 2.5rem;                      // 40px
+    --display-6: 2.25rem;                     // 36px
+
+    --h1: 2rem;                               // 32px
+    --h2: 1.75rem;                            // 28px
+    --h3: 1.5rem;                             // 24px
+    --h4: 1.25rem;                            // 20px
+    --h5: 1.125rem;                           // 18px
+    --h6: 1rem;                               // 16px
+
+    // Large Button
+    --btn-lg-padding-x: 1.5rem;                 // Large button horizontal padding (24px)
+    --btn-lg-padding-y: 0.25rem;                // Large button vertical padding (4px)
+    --btn-lg-size: 3rem;                        // Large button height (48px)
+
+    // Extra-Large Button
+    --btn-xl-padding-x: 1.5rem;                 // Extra-large button horizontal padding (24px)
+    --btn-xl-padding-y: 0.25rem;                // Extra-large button vertical padding (4px)
+    --btn-xl-size: 3.625rem;                    // Extra-large button height (58px)
+  }
+}
+
+/* ============================
+   Large Devices (Desktops)
+   Min Width: 1200px
+   ============================ */
+@media (min-width: 1200px) {
+  :root {
+    --text-md: 1.125rem;                      // 18px
+    --text-lg: 1.75rem;                       // 28px
+    --text-xl: 2.5rem;                        // 40px
+    --text-2xl: 3rem;                         // 48px
+    --text-base: 1rem;                        // 16px
+    --text-lead: 1.125rem;                    // 18px
+
+    --display-1: 6rem;                        // 96px
+    --display-2: 5.5rem;                      // 88px
+    --display-3: 5rem;                        // 80px
+    --display-4: 4.5rem;                      // 72px
+    --display-5: 4rem;                        // 64px
+    --display-6: 3.5rem;                      // 56px
+
+    --h1: 3rem;                               // 48px
+    --h2: 2.5rem;                             // 40px
+    --h3: 2.125rem;                           // 34px
+    --h4: 1.75rem;                            // 28px
+    --h5: 1.5rem;                             // 24px
+    --h6: 1.125rem;                           // 18px
+  }
+}

@@ -1,0 +1,53 @@
+/* =========================================================================
+   Responsive Layout Adjustments
+   ========================================================================= */
+// Defines responsive padding for the .screen-spacer class across various screen
+// sizes to ensure consistent spacing on different devices.
+
+@media all and (max-width: 320px) {
+	.screen-spacer {
+	  padding: 0 0%;                           // No horizontal padding for extra-small screens
+	}
+  }
+  
+  @media all and (min-width: 321px) and (max-width: 415px) {
+	.screen-spacer {
+	  padding: 0 1%;                           // Minimal horizontal padding for small phones
+	}
+  }
+  
+  @media all and (min-width: 416px) and (max-width: 575px) {
+	.screen-spacer {
+	  padding: 0 2%;                           // Slightly increased padding for standard phones
+	}
+  }
+  
+  @media all and (min-width: 576px) and (max-width: 767px) {
+	.screen-spacer {
+	  padding: 0 3%;                           // Moderate padding for landscape phones
+	}
+  }
+  
+  @media all and (min-width: 768px) and (max-width: 991px) {
+	.screen-spacer {
+	  padding: 0 3%;                           // Consistent padding for tablets
+	}
+  }
+  
+  @media all and (min-width: 992px) and (max-width: 1199px) {
+	.screen-spacer {
+	  padding: 0 5%;                           // Increased padding for desktop screens
+	}
+  }
+  
+  @media all and (min-width: 1200px) and (max-width: 1400px) {
+	.screen-spacer {
+	  padding: 0 5%;                           // Consistent padding for large desktops
+	}
+  }
+  
+  @media all and (min-width: 1400px) {
+	.screen-spacer {
+	  padding: 0 10%;                          // Maximum padding for extra-large desktops
+	}
+  }

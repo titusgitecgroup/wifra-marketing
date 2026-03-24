@@ -1,0 +1,233 @@
+/* =========================================================================
+   Header Styles
+   ========================================================================= */
+// Defines styles for the site header, including sticky navigation, mobile
+// hamburger menu, and responsive navigation behavior.
+
+.header {
+  display: block;                              // Block display for header container
+
+  & .sticky {
+    position: absolute;                        // Absolute positioning for sticky effect
+    z-index: 999;                              // High z-index to stay above content
+    width: 100%;                               // Full width
+  }
+
+  & .navbar {
+    &.navbar-light {
+      &.scrolled {
+        background-color: var(--white);         // White background when scrolled
+      }
+    }
+
+    &.scrolled {
+      position: fixed;                         // Fixed position when scrolled
+      background-color: var(--neutral-950);    // Dark background (neutral-950)
+      -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05); // Subtle shadow (WebKit)
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05); // Standard shadow
+      left: 0;                                 // Align to left
+      top: 0;                                  // Align to top
+      width: 100%;                             // Full width
+      z-index: 999;                            // High z-index
+      // -webkit-animation: fadeInDown 0.5s ease-out forwards; // Commented animation
+      // animation: fadeInDown 0.5s ease-out forwards; // Commented animation
+    }
+
+    & .navbar-nav {
+      & .nav-item,
+      & li {
+        margin-bottom: 0;                      // No bottom margin for nav items
+      }
+    }
+  }
+
+  &.light {
+    & .hamburger {
+      span {
+        background: var(--dark);                  // Black bar color
+      }
+    }
+    & .main-menu {
+      &.active,
+      .hamburger.active + & {
+        background-color: var(--white);
+      }
+    }
+  }
+}
+  
+/* =========================================================================
+    FadeInDown Animation
+    ========================================================================= */
+// Defines a keyframe animation for sliding the header down on scroll.
+  
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;                                // Fully transparent
+    transform: translate3d(0, -100%, 0);       // Start above viewport
+  }
+  to {
+    opacity: 1;                                // Fully opaque
+    transform: none;                           // Reset position
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;                  // Apply fadeInDown animation
+}
+  
+/* =========================================================================
+    Main Menu Styles
+    ========================================================================= */
+// Controls visibility and styling of the main navigation menu for mobile and desktop.
+
+.main-menu {
+  display: none;                               // Hidden by default on mobile
+
+  &.active,
+  .hamburger.active + & {
+    display: block;                            // Show when active (mobile)
+    width: 100%;                               // Full width
+    background-color: var(--dark);             // Black background
+    padding: 1rem 0;                           // Vertical padding (16px)
+    position: absolute;                        // Absolute positioning
+    top: 0;                                    // Align to top
+    left: 0;                                   // Align to left
+    z-index: 999;                              // High z-index
+    height: 100vh;                             // Full viewport height
+    display: flex;                             // Flex layout
+    align-items: center;                       // Center vertically
+    justify-content: center;                   // Center horizontally
+    font-size: 20px;                           // Larger font size (20px)
+  }
+}
+  
+/* =========================================================================
+    Hamburger Menu Styles
+    ========================================================================= */
+// Styles the hamburger icon for mobile navigation toggle.
+
+.hamburger {
+  width: 30px;                                 // Icon width
+  height: 22px;                                // Icon height
+  display: flex;                               // Flex layout for bars
+  flex-direction: column;                      // Stack bars vertically
+  justify-content: space-between;              // Even spacing between bars
+  cursor: pointer;                             // Pointer cursor
+  z-index: 1002;                               // Above other elements
+
+  span {
+    height: 3px;                               // Bar height
+    background: var(--white);                  // White bar color
+    border-radius: 2px;                        // Slightly rounded bars
+    transition: all 0.4s ease;                 // Smooth transition (400ms)
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg); // Top bar rotates to form X
+    }
+    span:nth-child(2) {
+      opacity: 0;                              // Middle bar disappears
+    }
+    span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg); // Bottom bar rotates to form X
+    }
+  }
+}
+  
+/* =========================================================================
+    Mobile Navigation Styles
+    ========================================================================= */
+// Styles the mobile navigation menu, which slides in from the top.
+
+.mobile-nav {
+  position: fixed;                             // Fixed positioning
+  top: -100%;                                  // Hidden above viewport
+  right: 0;                                    // Align to right
+  width: 100%;                                 // Full width
+  height: 100vh;                               // Full viewport height
+  background: var(--neutral-950);              // Dark background (neutral-950)
+  padding: 80px 20px;                          // Padding (80px top, 20px sides)
+  transition: top 0.3s ease;                   // Smooth slide-in (300ms)
+  z-index: 3;                                  // Above most content
+  display: flex;                               // Flex layout
+  align-items: center;                         // Center vertically
+  justify-content: center;                     // Center horizontally
+  text-align: center;                          // Center text
+
+  &.active {
+    top: 0;                                    // Slide into view
+  }
+
+  ul {
+    list-style: none;                          // Remove list bullets
+  }
+
+  li {
+    margin-bottom: 20px;                       // Spacing between items (20px)
+  }
+
+  a {
+    text-decoration: none;                     // No underline
+    font-size: 3rem;                           // Large font size (48px)
+    color: var(--white);                       // White link color
+  }
+}
+
+/* =========================================================================
+    Responsive Design
+    ========================================================================= */
+// Adjusts navigation for desktop screens (>=992px).
+
+@media (min-width: 992px) {
+  .main-menu {
+    display: flex !important;                  // Always visible on desktop
+    position: static;                          // Static positioning
+    background: transparent;                   // No background
+    padding: 0;                                // No padding
+  }
+
+  .hamburger {
+    display: none !important;                  // Hide hamburger icon
+
+    span {
+      background: var(--dark);                  // White bar color
+    }
+  }
+}
+
+/* =========================================================================
+    Dropdown menu
+    ========================================================================= */
+// Styles the dropdown menu
+
+@media (min-width: 992px) {
+  .dropdown-menu {
+    --bs-dropdown-font-size: var(--text-sm);
+    font-size: var(--bs-dropdown-font-size);
+    border: 0px;
+    box-shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+  }
+
+  .hover-dropdown:hover .dropdown-menu {
+    display: block;
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .hover-dropdown .dropdown-menu {
+    display: block;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+  .dropdown-item {
+    --bs-dropdown-item-padding-y: 0.625rem
+  }
+  .dropdown-item.active, .dropdown-item:active {
+    --bs-dropdown-link-active-bg: var(--blue-700);
+  }
+}

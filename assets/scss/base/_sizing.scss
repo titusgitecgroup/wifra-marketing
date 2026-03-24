@@ -1,0 +1,57 @@
+/* =========================================================================
+   Sizing Utility Classes
+   ========================================================================= */
+// Defines utility classes for controlling the dimensions of icons, avatars, and
+// general width/height properties, including responsive variations.
+
+  // Icon Sizing
+  // Sets default and custom sizes for icons using a CSS variable.
+  .icon {
+    height: var(--icon-size, 1.5rem);          // Default icon height
+    width: var(--icon-size, 1.5rem);           // Default icon width
+  }
+  .icon-xs { --icon-size: 1rem; }              // Extra-small icon size (16px)
+  .icon-sm { --icon-size: 1.5rem; }            // Small icon size (24px)
+  .icon-md { --icon-size: 2.5rem; }            // Medium icon size (40px)
+  .icon-lg { --icon-size: 3rem; }              // Large icon size (48px)
+  .icon-xl { --icon-size: 4rem; }              // Extra-large icon size (64px)
+  .icon-2xl { --icon-size: 5rem; }             // Double extra-large icon size (80px)
+  
+  // Avatar Sizing
+  // Sets default and custom sizes for avatars using a CSS variable.
+  .avatar {
+    width: var(--size, 2.5rem);                // Default avatar width
+    min-width: var(--size, 2.5rem);            // Ensures minimum width matches size
+  }
+  .avatar-xs { --size: 1rem; }                 // Extra-small avatar size (16px)
+  .avatar-sm { --size: 1.5rem; }               // Small avatar size (24px)
+  .avatar-md { --size: 2.5rem; }               // Medium avatar size (40px)
+  .avatar-lg { --size: 3rem; }                 // Large avatar size (48px)
+  .avatar-xl { --size: 5.5rem; }               // Extra-large avatar size (88px)
+  .avatar-2xl { --size: 8rem; }                // Double extra-large avatar size (128px)
+  
+  // Width and Height Utilities
+  // Generates percentage-based width and height classes for layout control.
+  $size-values: (25, 50, 75, 100);             // Percentage values for sizing
+  @each $size in $size-values {
+    .w-#{$size} { width: #{$size + "%"} !important; }  // Sets width to specified percentage
+    .h-#{$size} { height: #{$size + "%"} !important; } // Sets height to specified percentage
+  }
+  
+  // Responsive Width and Height
+  // Generates responsive width and height classes for different breakpoints.
+  $breakpoints: (
+    sm: 576px,                                 // Small breakpoint
+    md: 768px,                                 // Medium breakpoint
+    lg: 992px,                                 // Large breakpoint
+    xl: 1200px,                                // Extra-large breakpoint
+    2xl: 1440px                                // Double extra-large breakpoint
+  );
+  @each $bp, $width in $breakpoints {
+    @media (min-width: $width) {
+      @each $size in $size-values {
+        .w-#{$bp}-#{$size} { width: #{$size + "%"} !important; }  // Responsive width for breakpoint
+        .h-#{$bp}-#{$size} { height: #{$size + "%"} !important; } // Responsive height for breakpoint
+      }
+    }
+  }

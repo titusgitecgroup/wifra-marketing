@@ -1,0 +1,10 @@
+/* =========================================================================
+   Component Styles Consolidation
+   ========================================================================= */
+// Imports all component-specific SCSS modules to provide styling for reusable UI elements.
+// This file aggregates styles for buttons, carousels, dropdowns, hero banners, and pagination.
+
+@import 'button';       // Button styles and variants
+@import 'carousel';     // Carousel styles for slideshow components
+@import 'hero-banner';  // Hero banner styles with background overlays
+@import 'pagination';   // Pagination styles for navigation controls

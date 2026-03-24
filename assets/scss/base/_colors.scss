@@ -1,0 +1,93 @@
+/* =========================================================================
+   Color Utility Classes
+   ========================================================================= */
+// Defines utility classes for text, background, and border colors using the
+// defined color palette, including solid, gradient, and hover variations.
+
+  // Text Color Utilities
+  // Applies solid text colors for white, black, and palette shades.
+  .text-white { color: var(--white) !important; }   // Pure white text
+  .text-black { color: var(--black) !important; }   // Pure black text
+  
+  $colors: slate, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose, gray, zinc, neutral, stone;
+  $intensities: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950;
+  @each $color in $colors {
+    @each $intensity in $intensities {
+      .text-#{"#{$color}"}-#{$intensity} {
+        color: var(--#{$color}-#{$intensity}) !important;  // Applies specific color shade to text
+      }
+    }
+  }
+  
+  /* =========================================================================
+     Background Color Utilities
+     ========================================================================= */
+  // Defines classes for solid, gradient, hover, and overlay background styles.
+  
+    // Gradient Direction Classes
+    // Sets gradient direction for background gradients.
+  .bg-gradient-to-end { @include gradient-bg(to right); }       // Horizontal gradient
+  .bg-gradient-to-top { @include gradient-bg(to top); }         // Vertical gradient
+  .bg-gradient-to-top-right { @include gradient-bg(to top right); } // Diagonal gradient
+  
+    // Solid Background Colors
+  .bg-white { background-color: var(--white) !important; }     // Pure white background
+  .bg-black { background-color: var(--black) !important; }     // Pure black background
+  
+  $colors: red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose, slate, gray, zinc, neutral, stone;
+  $intensities: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950;
+  @each $color in $colors {
+    @each $intensity in $intensities {
+      // Solid Background Colors
+      .bg-#{"#{$color}"}-#{$intensity} {
+        background-color: var(--#{$color}-#{$intensity}) !important;
+        @include transition(
+          $property: all,                              // Smooth transition for all properties
+          $effect: ease,                               // Easing effect
+          $time: .3s                                   // 300ms duration
+        );
+      }
+      .hover-bg-#{"#{$color}"}-#{$intensity}:hover {
+        background-color: var(--#{$color}-#{$intensity}) !important; // Background color on hover
+      }
+  
+      // Gradient Background Colors
+      .from-#{"#{$color}"}-#{$intensity} {
+        --gradient-start: var(--#{$color}-#{$intensity}) !important; // Gradient start color
+      }
+      .to-#{"#{$color}"}-#{$intensity} {
+        --gradient-end: var(--#{$color}-#{$intensity}) !important;   // Gradient end color
+      }
+  
+      // Overlay Background Colors
+      .bg-overlay {
+        &-#{"#{$color}"}-#{$intensity} {
+          &:after {
+            @include bg-overlay($color, $intensity);              // Applies overlay with specified color
+          }
+        }
+      }
+    }
+  }
+  
+  /* =========================================================================
+     Border Color Utilities
+     ========================================================================= */
+  // Defines classes for applying border colors, including hover variations.
+  
+  .border-white { border-color: var(--white) !important; }     // Pure white border
+  .border-black { border-color: var(--black) !important; }     // Pure black border
+  
+  $colors: red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose, slate, gray, zinc, neutral, stone;
+  $intensities: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950;
+  @each $color in $colors {
+    @each $intensity in $intensities {
+      .border-#{"#{$color}"}-#{$intensity} {
+        --bs-border-color: var(--#{$color}-#{$intensity});      // Sets custom border color variable
+        border-color: var(--bs-border-color) !important;        // Applies border color
+      }
+      .hover-border-#{"#{$color}"}-#{$intensity}:hover {
+        border-color: var(--#{$color}-#{$intensity}) !important; // Border color on hover
+      }
+    }
+  }

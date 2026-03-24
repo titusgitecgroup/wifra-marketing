@@ -1,0 +1,8 @@
+/* =========================================================================
+   Abstract Styles Consolidation
+   ========================================================================= */
+// Imports core abstract SCSS modules that define reusable mixins and variables.
+// This file aggregates foundational utilities for consistent styling across the project.
+
+@import 'mixins';     // Reusable mixins for transitions, gradients, shadows, and more
+@import 'variables';  // Global CSS variables for colors, typography, spacing, and more

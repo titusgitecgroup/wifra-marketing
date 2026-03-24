@@ -1,0 +1,39 @@
+@import '../abstracts/mixins';
+
+/* =========================================================================
+   VR Glasses Styles
+   ========================================================================= */
+// Defines styles for VR glasses-related components, including text selection,
+// card hover effects, and tooltip appearance.
+
+::selection,
+::-webkit-selection,
+::-moz-selection,
+::-o-selection,
+::-ms-selection {
+  background: var(--purple-600);               // Purple background for selected text
+  color: var(--gray-100);                      // Light gray text color
+}
+
+.vr-headset {
+  margin-top: -7rem;                           // Negative top margin (112px) for overlap
+}
+
+.how-it-work {
+  & .card {
+    @include transition(all, ease-in-out, .3s); // Smooth transition (300ms)
+    border-bottom: .5rem solid transparent !important; // Transparent bottom border (8px)
+    background: transparent;                   // Transparent background
+    color: var(--gray-700);                    // Gray text color
+    &:hover {
+      background: var(--white);                // White background on hover
+      transform: translateY(-10px);            // Lift card up by 10px
+      @include shadow(0, 6px, 30px, 0, var(--d-purple-200)); // Subtle shadow on hover
+      border-bottom: .5rem solid var(--d-purple-700) !important; // Purple bottom border (8px)
+    }
+  }
+}
+
+.primary {
+  --bs-tooltip-bg: var(--blue-800);            // Blue tooltip background for primary elements
+}

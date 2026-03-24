@@ -1,0 +1,17 @@
+/* =========================================================================
+   Base Styles Consolidation
+   ========================================================================= */
+// Imports all core SCSS modules to provide a unified foundation for styling.
+// This file aggregates utilities for animations, backgrounds, borders, colors,
+// opacity, resets, responsive layouts, shadows, sizing, spacing, and typography.
+
+@import 'animations';      // Animation utilities for dynamic effects
+@import 'background';     // Background styling utilities (position, attachment, etc.)
+@import 'colors';         // Text, background, and border color utilities
+@import 'opacity';        // Opacity level utilities
+@import 'reset';          // Browser reset and base styles for consistent rendering
+@import 'responsive';     // Responsive layout adjustments for screen spacers
+@import 'shadow';         // Box shadow utilities for elevation effects
+@import 'sizing';         // Icon, avatar, and responsive width/height utilities
+@import 'spacing';        // Margin and padding utilities, including responsive variants
+@import 'typography';     // Font family, size, and heading utilities

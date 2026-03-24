@@ -1,0 +1,26 @@
+/* =========================================================================
+   Team Card Styles
+   ========================================================================= */
+// Defines styles for team member cards with hover-based image scaling effects.
+// Applies to version 1 of the team layout (team_v1).
+
+.team_v1 {
+  & .team-card {
+    & .team-image {
+      overflow: hidden;                        // Hide overflow for scaling effect
+      & img {
+        @include transition(all, ease-in-out, 0.3s); // Smooth transition (300ms)
+        scale: 1;                              // Default scale
+      }
+    }
+
+    &:hover {
+      & .team-image {
+        overflow: hidden;                      // Ensure overflow is hidden
+        & img {
+          scale: 1.1;                          // Scale image up on hover (110%)
+        }
+      }
+    }
+  }
+}

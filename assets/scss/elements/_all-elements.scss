@@ -1,0 +1,10 @@
+/* =========================================================================
+   Element Styles Consolidation
+   ========================================================================= */
+// Imports SCSS modules for UI elements, including accordions, team cards, sliders,
+// and content cards, to provide reusable styles for interactive components.
+
+@import 'accordians'; // Accordion styles for collapsible content sections
+@import 'team';      // Team card styles for member profiles with hover effects
+@import 'sliders';   // Slider styles for carousel navigation and layouts
+@import 'cards';     // Card styles for blog and content displays with text truncation

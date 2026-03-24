@@ -1,0 +1,44 @@
+/* =========================================================================
+   Slider Styles
+   ========================================================================= */
+// Defines styles for slider components, including overflow control, circular
+// navigation buttons, and light-themed navigation icons.
+
+.overflow-x-visible {
+  & .owl-stage-outer {
+    overflow: visible;                        // Allow content to extend beyond container
+  }
+}
+
+/* =========================================================================
+   Circular Navigation Styles
+   ========================================================================= */
+.nav-pill {
+  & .owl-prev, & .owl-next {
+    --size: 42px;                             // Button size (42px)
+    width: var(--size);                       // Set width
+    height: var(--size);                      // Set height
+    border: 0;                                // No border (overridden below)
+    background: transparent;                  // Transparent background
+    border-radius: 50px;                      // Circular shape
+    border: 1px solid;                        // Solid border
+    border-color: var(--gray-700);            // Border color (gray-700)
+    &.disabled {
+      opacity: .4;                           // 40% opacity for disabled state
+    }
+  }
+}
+
+/* =========================================================================
+   Light Navigation Theme
+   ========================================================================= */
+.nav-light {
+  &.owl-nav {
+    & i {
+      color: var(--white);                    // White icon color
+    }
+    & .owl-prev, & .owl-next {
+      border-color: var(--gray-100);         // Light border color (gray-100)
+    }
+  }
+}

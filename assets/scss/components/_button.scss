@@ -1,0 +1,313 @@
+/* =========================================================================
+   Button Styles
+   ========================================================================= */
+// Defines styles for a versatile button component with variants, sizes, and states.
+// Supports semantic colors, color palette shades, social buttons, store buttons, and responsive sizing.
+
+// Base Button Styles
+.btn {
+  --bs-btn-padding-x: var(--btn-padding-x);   // Horizontal padding from variables
+  --bs-btn-padding-y: var(--btn-padding-y);   // Vertical padding from variables
+  --bs-btn-font-size: var(--btn-text);         // Font size from variables
+  --bs-btn-border-radius: var(--bs-border-radius-sm); // Border radius
+  --bs-btn-font-weight: 500;                  // Medium font weight
+  min-width: var(--btn-size);                 // Minimum button width
+  min-height: var(--btn-size);            // Minimum button height
+  display: inline-flex;                       // Flex layout for alignment
+  align-items: center;                        // Vertical content centering
+  justify-content: center;                    // Horizontal content centering
+  gap: 0.5rem;                               // 8px gap between elements (e.g., icon and text)
+  line-height: 1.25;                         // Consistent line height
+
+  // Icon Button Variant
+  &.icon {
+    padding: 0;                              // No padding for icon-only buttons
+    min-width: 2.375rem;                        // Fixed width (38px)
+    min-height: 2.375rem;                       // Fixed height
+    i { font-size: 0.875rem; }                   // Icon font size (14px)
+  }
+
+  // Expandable Button Variant
+  &[class*=btn-expand] {
+    background: transparent !important;         // Transparent background
+    border: transparent !important;              // No transparent border
+    position: relative;                            // For positioning pseudo-elements
+    padding: 0 1.25rem 0 0;                    // Custom padding for expand effect
+
+    &:hover {
+      background-color: transparent !important;     // Maintain transparent background
+      border: transparent !important;          // No border
+      color: var(--white) !important;          // White text on hover
+
+      &:before { width: 100%; }                // Expand pseudo-element width
+      .icon--block { left: 0.25rem; }          // Shift icon position
+
+      span {
+        padding-left: 2.7rem;                  // Adjust text padding
+        padding-right: .3rem;                  // Minimal right padding
+      }
+    }
+
+    &:before {
+      content: "";                             // Pseudo-element for background effect
+      transition: all .5s cubic-bezier(.4,1.7,.7,.8); // Smooth custom transition
+      position: absolute;                      // Absolute positioning
+      top: 0;
+      left: 0;
+      border-radius: 3rem;                     // Rounded corners
+      z-index: 0;                              // Behind content
+      height: 100%;                            // Full height
+      width: 2.375rem;                         // Initial width (38px)
+    }
+
+    .icon--block {
+      position: absolute;                      // Absolute positioning for icon
+      height: 100%;                            // Full height
+      width: 2.375rem;                         // Fixed width (38px)
+      z-index: 1;                              // Above pseudo-element
+      left: 0;
+      top: 0;
+      display: flex;                           // Flex for centering
+      align-items: center;                     // Vertical centering
+      justify-content: center;                 // Horizontal centering
+      transition: all .35s cubic-bezier(.65,0,.076,1); // Smooth custom transition
+    }
+
+    span {
+      padding-left: 3rem;                      // Offset text for icon
+      position: relative;                      // Relative positioning
+      z-index: 3;                              // Above icon and pseudo-element
+      transition: all .2s ease;                // Smooth text transition
+    }
+  }
+
+  // Disabled State
+  &.disabled, &:disabled { opacity: var(--opacity-60); } // 60% opacity for disabled buttons
+
+  // Semantic Color Variants
+  @each $color in ("light", "dark", "primary", "secondary", "success", "danger", "warning", "info") {
+    &-#{$color} {
+      @include button-styles(var(--#{$color}), var(--bs-btn-color), var(--#{$color})); // Default styles
+      @include button-hover-focus(var(--#{$color}-dark), var(--bs-btn-color), var(--#{$color}-dark)); // Hover/focus styles
+    }
+
+    &-outline-#{$color} {
+      @include button-styles(transparent, var(--#{$color}), var(--#{$color})); // Outline styles
+      @include button-hover-focus(transparent, var(--#{$color}-dark), var(--#{$color}-dark)); // Outline hover/focus
+    }
+
+    &-soft-#{$color} {
+      @include button-soft(var(--#{$color}-rgb), var(--opacity-10), var(--#{$color}), var(--#{$color}-rgb), var(--opacity-0)); // Soft styles
+      @include button-soft-hover-focus(var(--#{$color}-rgb), var(--opacity-20)); // Soft hover/focus
+    }
+
+    &-ghost-#{$color} {
+      @include button-soft(var(--#{$color}-rgb), var(--opacity-0), var(--#{$color}), var(--#{$color}-rgb), var(--opacity-0)); // Ghost styles
+      @include button-soft-hover-focus(var(--#{$color}-rgb), var(--opacity-20)); // Ghost hover/focus
+    }
+
+    &-link-#{$color} {
+      text-decoration: underline;              // Underlined link style
+      @include button-styles(transparent, var(--#{$color}), transparent); // Link styles
+      @include button-hover-focus(transparent, var(--#{$color}-dark), transparent); // Link hover/focus
+    }
+
+    &-expand-#{$color} {
+      color: var(--#{$color});                 // Text color
+      &:before {
+        background-color: var(--#{$color});    // Expand background color
+      }
+      & i, & SVG {
+        position: relative;                    // Relative positioning
+        z-index: 2;                            // Above pseudo-element
+        color: var(--white);                   // White icon color
+        transition: all ease .4s;              // Smooth icon transition
+      }
+    }
+  }
+
+  // Color Palette Variants
+  @each $color in ("red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose", "slate", "gray", "zinc", "neutral", "stone") {
+    &-#{$color} {
+      @include button-styles(var(--#{$color}-700), var(--white), var(--#{$color}-700)); // Default styles
+      @include button-hover-focus(var(--#{$color}-800), var(--white), var(--#{$color}-800)); // Hover/focus styles
+    }
+
+    &-outline-#{$color} {
+      @include button-styles(transparent, var(--#{$color}-700), var(--#{$color}-700)); // Outline styles
+      @include button-hover-focus(transparent, var(--#{$color}-800), var(--#{$color}-800)); // Outline hover/focus
+    }
+
+    &-soft-#{$color} {
+      @include button-soft(var(--#{$color}-rgb), var(--opacity-10), var(--#{$color}-700), var(--#{$color}-rgb), var(--opacity-0)); // Soft styles
+      @include button-soft-hover-focus(var(--#{$color}-rgb), var(--opacity-20)); // Soft hover/focus
+    }
+
+    &-ghost-#{$color} {
+      @include button-soft(var(--#{$color}-rgb), var(--opacity-0), var(--#{$color}-700), var(--#{$color}-rgb), var(--opacity-0)); // Ghost styles
+      @include button-soft-hover-focus(var(--#{$color}-rgb), var(--opacity-20)); // Ghost hover/focus
+    }
+
+    &-link-#{$color} {
+      text-decoration: underline;              // Underlined link style
+      @include button-styles(transparent, var(--#{$color}-700), transparent); // Link styles
+      @include button-hover-focus(transparent, var(--#{$color}-700), transparent); // Link hover/focus
+    }
+
+    &-expand-#{$color} {
+      color: var(--#{$color}-700);             // Text color
+      &:before {
+        background-color: var(--#{$color}-700); // Expand background color
+      }
+      & i, & SVG {
+        position: relative;                    // Relative positioning
+        z-index: 2;                            // Above pseudo-element
+        color: var(--white);                   // White icon color
+        transition: all ease .4s;              // Smooth icon transition
+      }
+    }
+  }
+
+  // Social Icon Buttons
+  &-icon {
+    padding: 0;                                // No padding for icon-only buttons
+    min-width: 2.375rem;                       // Fixed width (38px)
+    min-height: 2.375rem;                      // Fixed height (38px)
+
+    @each $social in ("facebook", "instagram", "linkedin", "x", "youtube", "pinterest", "dribbble", "reddit", "whatsapp", "yelp", "tumblr", "medium", "quora", "discord", "twitch", "vimeo", "threads", "airbnb", "skype", "slack", "intercom") {
+      &-#{$social} {
+        @include button-styles(var(--#{$social}), var(--white), var(--#{$social})); // Default social styles
+        @include button-hover-focus(var(--#{$social}), var(--white), var(--#{$social})); // Social hover/focus
+      }
+      &-outline-#{$social} {
+        @include button-styles(transparent, var(--#{$social}), var(--#{$social})); // Outline social styles
+        @include button-hover-focus(transparent, var(--#{$social}), var(--#{$social})); // Outline hover/focus
+      }
+      &-soft-#{$social} {
+        @include button-soft(var(--#{$social}-rgb), var(--opacity-10), var(--#{$social}), var(--#{$social}-rgb), var(--opacity-0)); // Soft social styles
+        @include button-soft-hover-focus(var(--#{$social}-rgb), var(--opacity-20)); // Soft hover/focus
+      }
+      &-ghost-#{$social} {
+        @include button-soft(var(--#{$social}-rgb), var(--opacity-0), var(--#{$social}), var(--#{$social}-rgb), var(--opacity-0)); // Ghost social styles
+        @include button-soft-hover-focus(var(--#{$social}-rgb), var(--opacity-20)); // Ghost hover/focus
+      }
+      &-link-#{$social} {
+        @include button-soft(var(--#{$social}-rgb), var(--opacity-0), var(--#{$social}), var(--#{$social}-rgb), var(--opacity-0)); // Link social styles
+        @include button-soft-hover-focus(var(--#{$social}-rgb), var(--opacity-0)); // Link hover/focus
+      }
+    }
+  }
+}
+
+/* =========================================================================
+   Store Button Styles
+   ========================================================================= */
+// Defines styles for store buttons (e.g., App Store, Google Play).
+
+.store-button {
+  padding: 0.5rem 1.25rem;                     // Standard padding (8px 20px)
+  border-radius: 0.5rem;                       // Rounded corners (8px)
+  & img {
+    height: 2.25rem;                           // Image height (36px)
+  }
+  &.dark {
+    @include store-btn(var(--black));           // Black background for dark variant
+    .light-button { display: none; }           // Hide light-themed image
+  }
+  &.white {
+    @include store-btn(var(--white));           // White background for light variant
+    .dark-button { display: none; }            // Hide dark-themed image
+  }
+  &.btn-xl {
+    padding: 0.75rem 1.5rem;                   // Larger padding for extra-large size
+    & img {
+      height: 2.5rem;                          // Larger image height (40px)
+    }
+  }
+}
+
+/* =========================================================================
+   Button Size Variants
+   ========================================================================= */
+// Defines button sizes (small, large, extra-large) with custom padding and dimensions.
+
+$btn-sizes: (
+  sm: (
+    size: var(--btn-sm-size),                 // Small button size
+    padding-x: var(--btn-sm-padding-x),       // Horizontal padding
+    padding-y: var(--btn-sm-padding-y),       // Vertical padding
+    text: var(--btn-sm-text),                 // Font size
+    icon-size: 2rem,                          // Icon button size (32px)
+    icon-font: 0.75rem,                       // Icon font size (12px)
+    expand-padding: 0.875rem,                 // Expand button padding
+    expand-width: 2rem,                       // Expand button width
+    expand-span: 2.5rem,                      // Expand span padding
+    span-padding-left: 2.2rem,                // Span left padding on hover
+    span-padding-right: .3rem                 // Span right padding on hover
+  ),
+  lg: (
+    size: var(--btn-lg-size),                 // Large button size
+    padding-x: var(--btn-lg-padding-x),       // Horizontal padding
+    padding-y: var(--btn-lg-padding-y),       // Vertical padding
+    text: var(--btn-text),                    // Font size
+    icon-size: 3rem,                          // Icon button size (48px)
+    icon-font: 0.875rem,                      // Icon font size (14px)
+    expand-padding: 1.5rem,                   // Expand button padding
+    expand-width: 3rem,                       // Expand button width
+    expand-span: 3.625rem,                    // Expand span padding
+    span-padding-left: 3.125rem,              // Span left padding on hover
+    span-padding-right: .5rem                 // Span right padding on hover
+  ),
+  xl: (
+    size: var(--btn-xl-size),                 // Extra-large button size
+    padding-x: var(--btn-xl-padding-x),       // Horizontal padding
+    padding-y: var(--btn-xl-padding-y),       // Vertical padding
+    text: var(--btn-xl-text),                 // Font size
+    icon-size: 3.625rem,                      // Icon button size (58px)
+    icon-font: 1rem,                          // Icon font size (16px)
+    expand-padding: 1.5rem,                   // Expand button padding
+    expand-width: 3.625rem,                   // Expand button width
+    expand-span: 4.5rem,                      // Expand span padding
+    span-padding-left: 4rem,                  // Span left padding on hover
+    span-padding-right: .5rem                 // Span right padding on hover
+  )
+);
+
+@each $size, $values in $btn-sizes {
+  .btn-#{$size} {
+    --bs-btn-padding-x: #{map-get($values, padding-x)}; // Set horizontal padding
+    --bs-btn-padding-y: #{map-get($values, padding-y)}; // Set vertical padding
+    --bs-btn-font-size: #{map-get($values, text)};      // Set font size
+    --bs-btn-border-radius: var(--bs-border-radius-sm); // Border radius
+    --bs-btn-font-weight: 500;                         // Medium font weight
+    min-width: #{map-get($values, size)};              // Minimum width
+    min-height: #{map-get($values, size)};             // Minimum height
+    gap: calc(#{map-get($values, size)} / 4);          // Dynamic gap based on size
+
+    &.icon {
+      padding: 0;                                      // No padding for icon buttons
+      min-width: #{map-get($values, icon-size)};       // Icon button width
+      min-height: #{map-get($values, icon-size)};      // Icon button height
+      & i {
+        font-size: #{map-get($values, icon-font)};     // Icon font size
+      }
+    }
+
+    &[class*="btn-expand"] {
+      padding-right: #{map-get($values, expand-padding)}; // Expand button padding
+      &:before,
+      & .icon--block {
+        width: #{map-get($values, expand-width)};       // Expand element width
+      }
+      & span {
+        padding-left: #{map-get($values, expand-span)}; // Span padding
+      }
+      &:hover {
+        span {
+          padding-left: #{map-get($values, span-padding-left)}; // Hover span left padding
+          padding-right: #{map-get($values, span-padding-right)}; // Hover span right padding
+        }
+      }
+    }
+  }
+}

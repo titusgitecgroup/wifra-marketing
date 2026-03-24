@@ -1,0 +1,68 @@
+/* =========================================================================
+   CSS Reset and Base Styles
+   ========================================================================= */
+// Resets default browser styles and applies base styles for consistent rendering
+// across elements and devices.
+
+:hover {
+  @include transition(
+    $property: all,                           // Applies transition to all properties
+    $effect: ease,                            // Smooth easing effect
+    $time: .3s                                // 300ms transition duration
+  );
+}
+
+html {
+  overflow-y: scroll;                         // Ensures vertical scrollbar is always visible
+}
+
+body {
+  text-rendering: auto;                       // Default text rendering for clarity
+  -webkit-font-smoothing: antialiased;        // Smooths fonts on WebKit browsers
+  -moz-osx-font-smoothing: grayscale;         // Smooths fonts on Firefox for macOS
+  padding: 0;                                 // Removes default padding
+  margin: 0;                                  // Removes default margin
+  font-family: var(--font-primary);           // Applies primary font
+  color: var(--gray-700) !important;          // Sets default text color
+  font-weight: 400;                           // Normal font weight
+}
+
+// Placeholder Styles
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder {
+  color: var(--gray-600);                     // Placeholder text color
+  opacity: 0.5;                               // Reduced opacity for placeholders
+}
+
+img {
+  max-width: 100%;                           // Ensures images are responsive
+  -webkit-user-select: none;                 // Disables image selection across browsers
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  user-select: none;                         // Prevents image dragging
+}
+
+iframe {
+  display: block;                            // Ensures block-level rendering
+  width: 100%;                               // Full-width iframes
+  border: none;                              // Removes default border
+}
+
+video {
+  display: block;                            // Block-level rendering for videos
+  width: auto;                               // Allows natural width
+  min-width: 100%;                           // Ensures minimum full-width
+  height: auto;                              // Allows natural height
+  min-height: 100%;                          // Ensures minimum full-height
+}
+
+audio, canvas, progress, video {
+  vertical-align: middle;                    // Aligns inline media elements
+}
+
+ul li {
+  margin-bottom: .5rem;                       // Adds spacing between list items
+}

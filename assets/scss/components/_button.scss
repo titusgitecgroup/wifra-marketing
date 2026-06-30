@@ -129,41 +129,73 @@
   // Color Palette Variants
   @each $color in ("red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose", "slate", "gray", "zinc", "neutral", "stone") {
     &-#{$color} {
-      @include button-styles(var(--#{$color}-700), var(--white), var(--#{$color}-700)); // Default styles
-      @include button-hover-focus(var(--#{$color}-800), var(--white), var(--#{$color}-800)); // Hover/focus styles
+      @if $color == "indigo" {
+        @include button-styles(var(--construction-gold), var(--deep-navy), var(--construction-gold));
+        @include button-hover-focus(var(--construction-gold-dark), var(--deep-navy), var(--construction-gold-dark));
+      } @else {
+        @include button-styles(var(--#{$color}-700), var(--white), var(--#{$color}-700));
+        @include button-hover-focus(var(--#{$color}-800), var(--white), var(--#{$color}-800));
+      }
     }
 
     &-outline-#{$color} {
-      @include button-styles(transparent, var(--#{$color}-700), var(--#{$color}-700)); // Outline styles
-      @include button-hover-focus(transparent, var(--#{$color}-800), var(--#{$color}-800)); // Outline hover/focus
+      @if $color == "indigo" {
+        @include button-styles(transparent, var(--construction-gold), var(--construction-gold));
+        @include button-hover-focus(transparent, var(--construction-gold-dark), var(--construction-gold-dark));
+      } @else {
+        @include button-styles(transparent, var(--#{$color}-700), var(--#{$color}-700));
+        @include button-hover-focus(transparent, var(--#{$color}-800), var(--#{$color}-800));
+      }
     }
 
     &-soft-#{$color} {
-      @include button-soft(var(--#{$color}-rgb), var(--opacity-10), var(--#{$color}-700), var(--#{$color}-rgb), var(--opacity-0)); // Soft styles
-      @include button-soft-hover-focus(var(--#{$color}-rgb), var(--opacity-20)); // Soft hover/focus
+      @if $color == "indigo" {
+        @include button-soft(var(--construction-gold-rgb), var(--opacity-10), var(--construction-gold), var(--construction-gold-rgb), var(--opacity-0));
+        @include button-soft-hover-focus(var(--construction-gold-rgb), var(--opacity-20));
+      } @else {
+        @include button-soft(var(--#{$color}-rgb), var(--opacity-10), var(--#{$color}-700), var(--#{$color}-rgb), var(--opacity-0));
+        @include button-soft-hover-focus(var(--#{$color}-rgb), var(--opacity-20));
+      }
     }
 
     &-ghost-#{$color} {
-      @include button-soft(var(--#{$color}-rgb), var(--opacity-0), var(--#{$color}-700), var(--#{$color}-rgb), var(--opacity-0)); // Ghost styles
-      @include button-soft-hover-focus(var(--#{$color}-rgb), var(--opacity-20)); // Ghost hover/focus
+      @if $color == "indigo" {
+        @include button-soft(var(--construction-gold-rgb), var(--opacity-0), var(--construction-gold), var(--construction-gold-rgb), var(--opacity-0));
+        @include button-soft-hover-focus(var(--construction-gold-rgb), var(--opacity-20));
+      } @else {
+        @include button-soft(var(--#{$color}-rgb), var(--opacity-0), var(--#{$color}-700), var(--#{$color}-rgb), var(--opacity-0));
+        @include button-soft-hover-focus(var(--#{$color}-rgb), var(--opacity-20));
+      }
     }
 
     &-link-#{$color} {
-      text-decoration: underline;              // Underlined link style
-      @include button-styles(transparent, var(--#{$color}-700), transparent); // Link styles
-      @include button-hover-focus(transparent, var(--#{$color}-700), transparent); // Link hover/focus
+      text-decoration: underline;
+      @if $color == "indigo" {
+        @include button-styles(transparent, var(--construction-gold), transparent);
+        @include button-hover-focus(transparent, var(--construction-gold-dark), transparent);
+      } @else {
+        @include button-styles(transparent, var(--#{$color}-700), transparent);
+        @include button-hover-focus(transparent, var(--#{$color}-700), transparent);
+      }
     }
 
     &-expand-#{$color} {
-      color: var(--#{$color}-700);             // Text color
-      &:before {
-        background-color: var(--#{$color}-700); // Expand background color
+      @if $color == "indigo" {
+        color: var(--construction-gold);
+        &:before {
+          background-color: var(--construction-gold);
+        }
+      } @else {
+        color: var(--#{$color}-700);
+        &:before {
+          background-color: var(--#{$color}-700);
+        }
       }
       & i, & SVG {
-        position: relative;                    // Relative positioning
-        z-index: 2;                            // Above pseudo-element
-        color: var(--white);                   // White icon color
-        transition: all ease .4s;              // Smooth icon transition
+        position: relative;
+        z-index: 2;
+        color: var(--white);
+        transition: all ease .4s;
       }
     }
   }

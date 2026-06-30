@@ -1,0 +1,111 @@
+/* =========================================================================
+   CRM Landing Page — Wifra Brand Theme
+   ========================================================================= */
+
+.text-gold {
+  color: var(--construction-gold) !important;
+}
+
+// White navbar with brand menu colors
+.header.light {
+  .navbar {
+    background-color: var(--white);
+    box-shadow: 0 1px 0 rgba(11, 42, 68, 0.08);
+
+    .nav-link {
+      color: var(--body-text) !important;
+
+      &:hover,
+      &:focus {
+        color: var(--brand-teal) !important;
+      }
+
+      &.active {
+        color: var(--deep-navy) !important;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .hamburger span {
+    background: var(--deep-navy);
+  }
+
+  .main-menu.active,
+  .hamburger.active + .main-menu {
+    background-color: var(--white);
+  }
+}
+
+// Hero section on Deep Navy
+#home.bg-indigo-700 {
+  h1,
+  .display-5,
+  .lead {
+    color: var(--white) !important;
+  }
+}
+
+// Footer on Deep Navy
+.footer.bg-indigo-700 {
+  color: rgba(255, 255, 255, 0.85);
+
+  h6,
+  p,
+  .fs-sm {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  a.text-gray-900,
+  a:not(.btn) {
+    color: rgba(255, 255, 255, 0.85);
+
+    &:hover,
+    &:focus {
+      color: var(--brand-teal) !important;
+    }
+  }
+
+  .border-gray-200 {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .btn.icon {
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+
+    &.facebook,
+    &.twitter,
+    &.dribbble,
+    &.pinterest,
+    &.linkedin {
+      color: var(--white);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--brand-teal);
+      border-color: var(--brand-teal);
+      background: transparent;
+    }
+  }
+}
+
+// Testimonial slider navigation
+.nav-light.owl-nav {
+  .owl-prev,
+  .owl-next {
+    border-color: rgba(255, 255, 255, 0.4);
+
+    &:hover {
+      border-color: var(--brand-teal);
+    }
+  }
+}
+
+// Form focus states
+.form-control:focus {
+  border-color: var(--brand-teal);
+  box-shadow: 0 0 0 0.25rem rgba(var(--brand-teal-rgb), 0.25);
+}

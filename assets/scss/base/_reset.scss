@@ -23,7 +23,7 @@ body {
   padding: 0;                                 // Removes default padding
   margin: 0;                                  // Removes default margin
   font-family: var(--font-primary);           // Applies primary font
-  color: var(--gray-700) !important;          // Sets default text color
+  color: var(--body-text) !important;          // Sets default text color
   font-weight: 400;                           // Normal font weight
 }
 

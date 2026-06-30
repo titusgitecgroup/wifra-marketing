@@ -20,11 +20,6 @@
 /* =========================================================================
    Animation Mixins
    ========================================================================= */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap");
 @keyframes floating {
   0% {
     transform: translate(0, 0px);
@@ -56,12 +51,22 @@
   --dark: var(--neutral-950);
   --dark-dark: var(--black);
   --dark-rgb: var(--black-rgb);
-  --primary: var(--blue-700);
-  --primary-dark: var(--blue-800);
-  --primary-rgb: var(--blue-rgb);
-  --secondary: var(--gray-700);
-  --secondary-dark: var(--gray-800);
-  --secondary-rgb: var(--gray-rgb);
+  --deep-navy: #0B2A44;
+  --deep-navy-dark: #081E31;
+  --deep-navy-rgb: 11, 42, 68;
+  --brand-teal: #0FA3B1;
+  --brand-teal-dark: #0C8A96;
+  --brand-teal-rgb: 15, 163, 177;
+  --construction-gold: #F2B134;
+  --construction-gold-dark: #D99A1F;
+  --construction-gold-rgb: 242, 177, 52;
+  --body-text: #2D2D2D;
+  --primary: var(--deep-navy);
+  --primary-dark: var(--deep-navy-dark);
+  --primary-rgb: var(--deep-navy-rgb);
+  --secondary: var(--brand-teal);
+  --secondary-dark: var(--brand-teal-dark);
+  --secondary-rgb: var(--brand-teal-rgb);
   --success: var(--green-700);
   --success-dark: var(--green-800);
   --success-rgb: var(--green-rgb);
@@ -158,18 +163,18 @@
   --emerald-800: #235F47;
   --emerald-900: #1E4D3C;
   --emerald-950: #0E2B22;
-  --teal-rgb: 44,118,111;
-  --teal-50: #F3FDFA;
-  --teal-100: #D5FAF1;
-  --teal-200: #ACF4E4;
-  --teal-300: #7CE9D5;
-  --teal-400: #52D2BE;
-  --teal-500: #44B8A7;
-  --teal-600: #359489;
-  --teal-700: #2C766F;
-  --teal-800: #255E59;
-  --teal-900: #234D4A;
-  --teal-950: #112E2E;
+  --teal-rgb: 15, 163, 177;
+  --teal-50: #E8F6F8;
+  --teal-100: #D0EDF1;
+  --teal-200: #A1DBE3;
+  --teal-300: #72C9D5;
+  --teal-400: #43B7C7;
+  --teal-500: #0FA3B1;
+  --teal-600: #0C8A96;
+  --teal-700: #0A727D;
+  --teal-800: #085A63;
+  --teal-900: #064349;
+  --teal-950: #032B2F;
   --cyan-rgb: 42,115,46;
   --cyan-50: #EFFDFF;
   --cyan-100: #D fused #D7F9FD;
@@ -206,18 +211,18 @@
   --blue-800: #233889;
   --blue-900: #223BB1;
   --blue-950: #192452;
-  --indigo-rgb: 64,46,207;
-  --indigo-50: #EFF2FE;
-  --indigo-100: #E1E7FD;
-  --indigo-200: #C9D2FC;
-  --indigo-300: #A6B3FD;
-  --indigo-400: #7E86FB;
-  --indigo-500: #615FF8;
-  --indigo-600: #4C3AED;
-  --indigo-700: #402ECF;
-  --indigo-800: #352AA5;
-  --indigo-900: #302C80;
-  --indigo-950: #1D1A4A;
+  --indigo-rgb: 11, 42, 68;
+  --indigo-50: #F0F4F8;
+  --indigo-100: #E8F6F8;
+  --indigo-200: #B8CFDE;
+  --indigo-300: #7A9BB5;
+  --indigo-400: #4A6F8F;
+  --indigo-500: #2D5170;
+  --indigo-600: #1A3D5A;
+  --indigo-700: #0B2A44;
+  --indigo-800: #081E31;
+  --indigo-900: #061522;
+  --indigo-950: #030B12;
   --violet-rgb: 102,21,222;
   --violet-50: #F5F3FE;
   --violet-100: #ECE9FC;
@@ -290,7 +295,7 @@
   --slate-800: #1F283B;
   --slate-900: #10172A;
   --slate-950: #030616;
-  --gray-rgb: 56,65,81;
+  --gray-rgb: 45, 45, 45;
   --gray-50: #F9FAFB;
   --gray-100: #F3F4F6;
   --gray-200: #E5E7EB;
@@ -298,10 +303,10 @@
   --gray-400: #9AA1AD;
   --gray-500: #6B7281;
   --gray-600: #4C5564;
-  --gray-700: #384151;
-  --gray-800: #202937;
-  --gray-900: #121827;
-  --gray-950: #040711;
+  --gray-700: #2D2D2D;
+  --gray-800: #252525;
+  --gray-900: #2D2D2D;
+  --gray-950: #1A1A1A;
   --zinc-rgb: 63,63,70;
   --zinc-50: #FAFAFA;
   --zinc-100: #F4F4F5;
@@ -380,9 +385,9 @@
   --skype-rgb: 0, 158, 220;
   --slack-rgb: 74, 21, 75;
   --intercom-rgb: 4, 21, 39;
-  --font-serif: "Playfair Display", serif;
-  --font-sans-serif: "Montserrat", sans-serif;
-  --font-primary: "Inter", sans-serif;
+  --font-serif: "Sora", sans-serif;
+  --font-sans-serif: "Sora", sans-serif;
+  --font-primary: "Sora", sans-serif;
   --font-handwriting: "Caveat", cursive;
   --font-monospace: "Anonymous Pro", monospace;
   /* Body Text Sizes */
@@ -570,9 +575,6 @@
   background-size: cover !important;
 }
 
-/* =========================================================================
-   Border Utility Classes
-   ========================================================================= */
 /* =========================================================================
    Color Utility Classes
    ========================================================================= */
@@ -11572,7 +11574,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-primary);
-  color: var(--gray-700) !important;
+  color: var(--body-text) !important;
   font-weight: 400;
 }
 
@@ -21060,9 +21062,6 @@ ul li {
   }
 }
 /* =========================================================================
-   Google Fonts Import
-   ========================================================================= */
-/* =========================================================================
    Font Family Variables
    ========================================================================= */
 /* =========================================================================
@@ -21126,37 +21125,37 @@ ul li {
    Headings (h1–h6 and .h1–.h6)
    ========================================================================= */
 h1, .h1 {
-  color: var(--neutral-950);
+  color: var(--body-text);
   font-family: var(--font-primary);
   font-size: var(--h1) !important;
 }
 
 h2, .h2 {
-  color: var(--neutral-950);
+  color: var(--body-text);
   font-family: var(--font-primary);
   font-size: var(--h2) !important;
 }
 
 h3, .h3 {
-  color: var(--neutral-950);
+  color: var(--body-text);
   font-family: var(--font-primary);
   font-size: var(--h3) !important;
 }
 
 h4, .h4 {
-  color: var(--neutral-950);
+  color: var(--body-text);
   font-family: var(--font-primary);
   font-size: var(--h4) !important;
 }
 
 h5, .h5 {
-  color: var(--neutral-950);
+  color: var(--body-text);
   font-family: var(--font-primary);
   font-size: var(--h5) !important;
 }
 
 h6, .h6 {
-  color: var(--neutral-950);
+  color: var(--body-text);
   font-family: var(--font-primary);
   font-size: var(--h6) !important;
 }
@@ -21219,25 +21218,24 @@ h6, .h6 {
    Anchor Link Styles
    ========================================================================= */
 a {
-  color: var(--blue-700);
-  text-decoration: none;
+  color: var(--brand-teal);
 }
 a:hover, a:focus {
-  color: var(--blue-900);
+  color: var(--brand-teal-dark);
 }
 a.underline {
   text-decoration: underline;
 }
 a.underline:hover, a.underline:focus {
-  color: var(--blue-900);
+  color: var(--brand-teal-dark);
 }
 a.hover-underline {
-  color: var(--blue-700);
+  color: var(--brand-teal);
   text-decoration: none;
   position: relative;
 }
 a.hover-underline:hover, a.hover-underline:focus {
-  color: var(--blue-900);
+  color: var(--brand-teal-dark);
 }
 
 /* =========================================================================
@@ -22459,57 +22457,57 @@ body {
   transition: all ease 0.4s;
 }
 .btn-indigo {
-  background-color: var(--indigo-700) !important;
-  color: var(--white) !important;
-  border-color: var(--indigo-700) !important;
+  background-color: var(--construction-gold) !important;
+  color: var(--deep-navy) !important;
+  border-color: var(--construction-gold) !important;
 }
 .btn-indigo:hover, .btn-indigo:focus-visible {
-  background-color: var(--indigo-800) !important;
-  color: var(--white) !important;
-  border-color: var(--indigo-800) !important;
+  background-color: var(--construction-gold-dark) !important;
+  color: var(--deep-navy) !important;
+  border-color: var(--construction-gold-dark) !important;
 }
 .btn-outline-indigo {
   background-color: transparent !important;
-  color: var(--indigo-700) !important;
-  border-color: var(--indigo-700) !important;
+  color: var(--construction-gold) !important;
+  border-color: var(--construction-gold) !important;
 }
 .btn-outline-indigo:hover, .btn-outline-indigo:focus-visible {
   background-color: transparent !important;
-  color: var(--indigo-800) !important;
-  border-color: var(--indigo-800) !important;
+  color: var(--construction-gold-dark) !important;
+  border-color: var(--construction-gold-dark) !important;
 }
 .btn-soft-indigo {
-  background-color: rgba(var(--indigo-rgb), var(--opacity-10)) !important;
-  color: var(--indigo-700) !important;
-  border-color: rgba(var(--indigo-rgb), var(--opacity-0)) !important;
+  background-color: rgba(var(--construction-gold-rgb), var(--opacity-10)) !important;
+  color: var(--construction-gold) !important;
+  border-color: rgba(var(--construction-gold-rgb), var(--opacity-0)) !important;
 }
 .btn-soft-indigo:hover, .btn-soft-indigo:focus-visible {
-  background-color: rgba(var(--indigo-rgb), var(--opacity-20)) !important;
+  background-color: rgba(var(--construction-gold-rgb), var(--opacity-20)) !important;
 }
 .btn-ghost-indigo {
-  background-color: rgba(var(--indigo-rgb), var(--opacity-0)) !important;
-  color: var(--indigo-700) !important;
-  border-color: rgba(var(--indigo-rgb), var(--opacity-0)) !important;
+  background-color: rgba(var(--construction-gold-rgb), var(--opacity-0)) !important;
+  color: var(--construction-gold) !important;
+  border-color: rgba(var(--construction-gold-rgb), var(--opacity-0)) !important;
 }
 .btn-ghost-indigo:hover, .btn-ghost-indigo:focus-visible {
-  background-color: rgba(var(--indigo-rgb), var(--opacity-20)) !important;
+  background-color: rgba(var(--construction-gold-rgb), var(--opacity-20)) !important;
 }
 .btn-link-indigo {
   text-decoration: underline;
   background-color: transparent !important;
-  color: var(--indigo-700) !important;
+  color: var(--construction-gold) !important;
   border-color: transparent !important;
 }
 .btn-link-indigo:hover, .btn-link-indigo:focus-visible {
   background-color: transparent !important;
-  color: var(--indigo-700) !important;
+  color: var(--construction-gold-dark) !important;
   border-color: transparent !important;
 }
 .btn-expand-indigo {
-  color: var(--indigo-700);
+  color: var(--construction-gold);
 }
 .btn-expand-indigo:before {
-  background-color: var(--indigo-700);
+  background-color: var(--construction-gold);
 }
 .btn-expand-indigo i, .btn-expand-indigo SVG {
   position: relative;
@@ -24214,9 +24212,6 @@ body {
 }
 
 /* =========================================================================
-   Dropdown Menu Styles
-   ========================================================================= */
-/* =========================================================================
    Hero Banner Styles
    ========================================================================= */
 .purple-light:after {
@@ -24238,27 +24233,6 @@ body {
    ========================================================================= */
 .pagination {
   margin-bottom: 0;
-  --bs-pagination-padding-x: 0.75rem;
-  --bs-pagination-padding-y: 0.375rem;
-  --bs-pagination-font-size: 1rem;
-  --bs-pagination-color: var(--bs-link-color);
-  --bs-pagination-bg: var(--bs-body-bg);
-  --bs-pagination-border-width: var(--bs-border-width);
-  --bs-pagination-border-color: var(--bs-border-color);
-  --bs-pagination-hover-color: var(--bs-link-hover-color);
-  --bs-pagination-hover-bg: var(--bs-tertiary-bg);
-  --bs-pagination-hover-border-color: var(--bs-border-color);
-  --bs-pagination-focus-color: var(--bs-link-hover-color);
-  --bs-pagination-focus-bg: var(--bs-secondary-bg);
-  --bs-pagination-active-bg: var(--bs-primary-bg);
-  --bs-pagination-active-border-color: var(--bs-primary);
-  --bs-pagination-disabled-color: var(--bs-secondary-color);
-  --bs-pagination-disabled-bg: var(--bs-body-bg);
-  --bs-pagination-disabled-border-color: var(--bs-border-color);
-  display: flex;
-  padding-left: 0;
-  list-style: none;
-  margin: var(--bs-margin) !important;
 }
 .pagination .page-item {
   margin-bottom: 0;
@@ -24281,6 +24255,29 @@ body {
   --bs-pagination-active-bg: var(--blue-600);
   --bs-pagination-active-border-color: var(--blue-600);
   --bs-pagination-active-color: var(--neutral-100);
+}
+.pagination {
+  --bs-pagination-padding-x: 0.75rem;
+  --bs-pagination-padding-y: 0.375rem;
+  --bs-pagination-font-size: 1rem;
+  --bs-pagination-color: var(--bs-link-color);
+  --bs-pagination-bg: var(--bs-body-bg);
+  --bs-pagination-border-width: var(--bs-border-width);
+  --bs-pagination-border-color: var(--bs-border-color);
+  --bs-pagination-hover-color: var(--bs-link-hover-color);
+  --bs-pagination-hover-bg: var(--bs-tertiary-bg);
+  --bs-pagination-hover-border-color: var(--bs-border-color);
+  --bs-pagination-focus-color: var(--bs-link-hover-color);
+  --bs-pagination-focus-bg: var(--bs-secondary-bg);
+  --bs-pagination-active-bg: var(--bs-primary-bg);
+  --bs-pagination-active-border-color: var(--bs-primary);
+  --bs-pagination-disabled-color: var(--bs-secondary-color);
+  --bs-pagination-disabled-bg: var(--bs-body-bg);
+  --bs-pagination-disabled-border-color: var(--bs-border-color);
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  margin: var(--bs-margin) !important;
 }
 .pagination .page-link {
   position: relative;
@@ -24535,12 +24532,22 @@ body {
   z-index: 999;
   width: 100%;
 }
-.header .navbar.navbar-light.scrolled {
+.header .navbar {
   background-color: var(--white);
+}
+.header .navbar.navbar-light .nav-link {
+  color: var(--body-text);
+}
+.header .navbar.navbar-light .nav-link:hover, .header .navbar.navbar-light .nav-link:focus {
+  color: var(--brand-teal);
+}
+.header .navbar.navbar-light .nav-link.active {
+  color: var(--deep-navy);
+  font-weight: 600;
 }
 .header .navbar.scrolled {
   position: fixed;
-  background-color: var(--neutral-950);
+  background-color: var(--white);
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
   left: 0;
@@ -24552,7 +24559,7 @@ body {
   margin-bottom: 0;
 }
 .header.light .hamburger span {
-  background: var(--dark);
+  background: var(--deep-navy);
 }
 .header.light .main-menu.active, .hamburger.active + .header.light .main-menu {
   background-color: var(--white);
@@ -24702,6 +24709,90 @@ body {
     --bs-dropdown-item-padding-y: 0.625rem ;
   }
   .dropdown-item.active, .dropdown-item:active {
-    --bs-dropdown-link-active-bg: var(--blue-700);
+    --bs-dropdown-link-active-bg: var(--deep-navy);
   }
 }
+/* =========================================================================
+   CRM Landing Page — Wifra Brand Theme
+   ========================================================================= */
+.text-gold {
+  color: var(--construction-gold) !important;
+}
+
+.header.light .navbar {
+  background-color: var(--white);
+  box-shadow: 0 1px 0 rgba(11, 42, 68, 0.08);
+}
+.header.light .navbar .nav-link {
+  color: var(--body-text) !important;
+}
+.header.light .navbar .nav-link:hover, .header.light .navbar .nav-link:focus {
+  color: var(--brand-teal) !important;
+}
+.header.light .navbar .nav-link.active {
+  color: var(--deep-navy) !important;
+  font-weight: 600;
+}
+.header.light .hamburger span {
+  background: var(--deep-navy);
+}
+.header.light .main-menu.active,
+.header.light .hamburger.active + .main-menu {
+  background-color: var(--white);
+}
+
+#home.bg-indigo-700 h1,
+#home.bg-indigo-700 .display-5,
+#home.bg-indigo-700 .lead {
+  color: var(--white) !important;
+}
+
+.footer.bg-indigo-700 {
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer.bg-indigo-700 h6,
+.footer.bg-indigo-700 p,
+.footer.bg-indigo-700 .fs-sm {
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer.bg-indigo-700 a.text-gray-900,
+.footer.bg-indigo-700 a:not(.btn) {
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer.bg-indigo-700 a.text-gray-900:hover, .footer.bg-indigo-700 a.text-gray-900:focus,
+.footer.bg-indigo-700 a:not(.btn):hover,
+.footer.bg-indigo-700 a:not(.btn):focus {
+  color: var(--brand-teal) !important;
+}
+.footer.bg-indigo-700 .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+.footer.bg-indigo-700 .btn.icon {
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+}
+.footer.bg-indigo-700 .btn.icon.facebook, .footer.bg-indigo-700 .btn.icon.twitter, .footer.bg-indigo-700 .btn.icon.dribbble, .footer.bg-indigo-700 .btn.icon.pinterest, .footer.bg-indigo-700 .btn.icon.linkedin {
+  color: var(--white);
+}
+.footer.bg-indigo-700 .btn.icon:hover, .footer.bg-indigo-700 .btn.icon:focus {
+  color: var(--brand-teal);
+  border-color: var(--brand-teal);
+  background: transparent;
+}
+
+.nav-light.owl-nav .owl-prev,
+.nav-light.owl-nav .owl-next {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.nav-light.owl-nav .owl-prev:hover,
+.nav-light.owl-nav .owl-next:hover {
+  border-color: var(--brand-teal);
+}
+
+.form-control:focus {
+  border-color: var(--brand-teal);
+  box-shadow: 0 0 0 0.25rem rgba(var(--brand-teal-rgb), 0.25);
+}
+
+/*# sourceMappingURL=styles.css.map */

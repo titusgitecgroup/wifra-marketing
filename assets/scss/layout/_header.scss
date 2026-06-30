@@ -14,15 +14,27 @@
   }
 
   & .navbar {
+    background-color: var(--white);
+
     &.navbar-light {
-      &.scrolled {
-        background-color: var(--white);         // White background when scrolled
+      .nav-link {
+        color: var(--body-text);
+
+        &:hover,
+        &:focus {
+          color: var(--brand-teal);
+        }
+
+        &.active {
+          color: var(--deep-navy);
+          font-weight: 600;
+        }
       }
     }
 
     &.scrolled {
       position: fixed;                         // Fixed position when scrolled
-      background-color: var(--neutral-950);    // Dark background (neutral-950)
+      background-color: var(--white);          // White background when scrolled
       -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05); // Subtle shadow (WebKit)
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05); // Standard shadow
       left: 0;                                 // Align to left
@@ -44,7 +56,7 @@
   &.light {
     & .hamburger {
       span {
-        background: var(--dark);                  // Black bar color
+        background: var(--deep-navy);
       }
     }
     & .main-menu {
@@ -228,6 +240,6 @@
     --bs-dropdown-item-padding-y: 0.625rem
   }
   .dropdown-item.active, .dropdown-item:active {
-    --bs-dropdown-link-active-bg: var(--blue-700);
+    --bs-dropdown-link-active-bg: var(--deep-navy);
   }
 }

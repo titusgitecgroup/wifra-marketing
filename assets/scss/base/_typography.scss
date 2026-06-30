@@ -1,18 +1,7 @@
 /* =========================================================================
-   Google Fonts Import
-   ========================================================================= */
-// Imports Google Fonts for consistent typography across the project.
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
-
-/* =========================================================================
    Font Family Variables
    ========================================================================= */
-// Defines a map of font families for use in utility classes.
+// Sora is loaded in index.html. Font stacks are defined in _variables.scss.
 
 $font-families: (
   serif: var(--font-serif),                   // Serif font for decorative text
@@ -75,7 +64,7 @@ $headings: (
 
 @each $tag, $size in $headings {
   #{$tag}, .#{$tag} {
-    color: var(--neutral-950);                // Dark neutral color for headings
+    color: var(--body-text);                // Body text color for headings
     font-family: var(--font-primary);         // Primary font for headings
     font-size: #{$size} !important;           // Overrides default font size
   }
@@ -127,31 +116,30 @@ $letter-spacing: (
 // Defines default and interactive styles for anchor (<a>) elements.
 
 a {
-  color: var(--blue-700);                     // Default link color
-  text-decoration: none;                      // Removes default underline
+  color: var(--brand-teal);                     // Default link color
 
   &:hover,
   &:focus {
-    color: var(--blue-900);                   // Darker blue on hover/focus
+    color: var(--brand-teal-dark);            // Darker teal on hover/focus
   }
 
   &.underline {
-    text-decoration: underline;               // Adds underline for .underline class
+    text-decoration: underline;
 
     &:hover,
     &:focus {
-      color: var(--blue-900);                 // Darker blue on hover/focus
+      color: var(--brand-teal-dark);
     }
   }
 
   &.hover-underline {
-    color: var(--blue-700);                   // Default color for hover-underline links
-    text-decoration: none;                    // No default underline
-    position: relative;                       // Enables pseudo-element positioning
+    color: var(--brand-teal);
+    text-decoration: none;
+    position: relative;
 
     &:hover,
     &:focus {
-      color: var(--blue-900);                 // Darker blue on hover/focus
+      color: var(--brand-teal-dark);
     }
   }
 }

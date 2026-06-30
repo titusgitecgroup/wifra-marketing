@@ -21,14 +21,26 @@
   --dark-dark: var(--black);                   // Darker shade for dark theme
   --dark-rgb: var(--black-rgb);                // Dark theme RGB for calculations
 
-  // Semantic Colors
-  --primary: var(--blue-700);                  // Primary brand color
-  --primary-dark: var(--blue-800);             // Darker primary shade for hover/focus
-  --primary-rgb: var(--blue-rgb);              // Primary RGB for opacity adjustments
+  // Wifra Brand Colors
+  --deep-navy: #0B2A44;                        // Primary — hero, sections, footer
+  --deep-navy-dark: #081E31;                   // Darker navy for hover/focus
+  --deep-navy-rgb: 11, 42, 68;                 // Navy RGB for opacity
+  --brand-teal: #0FA3B1;                       // Secondary accent — highlights, icons, borders
+  --brand-teal-dark: #0C8A96;                  // Darker teal for hover/focus
+  --brand-teal-rgb: 15, 163, 177;              // Teal RGB for opacity
+  --construction-gold: #F2B134;                // Hero accent — CTA buttons, key emphasis
+  --construction-gold-dark: #D99A1F;           // Darker gold for hover/focus
+  --construction-gold-rgb: 242, 177, 52;       // Gold RGB for opacity
+  --body-text: #2D2D2D;                        // Body text on light sections
 
-  --secondary: var(--gray-700);                // Secondary color for supporting elements
-  --secondary-dark: var(--gray-800);           // Darker secondary shade
-  --secondary-rgb: var(--gray-rgb);            // Secondary RGB for calculations
+  // Semantic Colors
+  --primary: var(--deep-navy);                 // Primary brand color
+  --primary-dark: var(--deep-navy-dark);       // Darker primary shade for hover/focus
+  --primary-rgb: var(--deep-navy-rgb);         // Primary RGB for opacity adjustments
+
+  --secondary: var(--brand-teal);              // Secondary accent color
+  --secondary-dark: var(--brand-teal-dark);    // Darker secondary shade
+  --secondary-rgb: var(--brand-teal-rgb);      // Secondary RGB for calculations
 
   --success: var(--green-700);                 // Success state color (e.g., confirmations)
   --success-dark: var(--green-800);            // Darker success shade
@@ -144,19 +156,19 @@
   --emerald-900: #1E4D3C;                     // Deep emerald
   --emerald-950: #0E2B22;                     // Darkest emerald
 
-  // Teal Color Scale
-  --teal-rgb: 44,118,111;                     // Base RGB for teal shades
-  --teal-50: #F3FDFA;                         // Lightest teal shade
-  --teal-100: #D5FAF1;                        // Very light teal
-  --teal-200: #ACF4E4;                        // Light teal
-  --teal-300: #7CE9D5;                        // Medium-light teal
-  --teal-400: #52D2BE;                        // Medium teal
-  --teal-500: #44B8A7;                        // Standard teal
-  --teal-600: #359489;                        // Medium-dark teal
-  --teal-700: #2C766F;                        // Dark teal
-  --teal-800: #255E59;                        // Very dark teal
-  --teal-900: #234D4A;                        // Deep teal
-  --teal-950: #112E2E;                        // Darkest teal
+  // Teal Color Scale (brand secondary accent)
+  --teal-rgb: 15, 163, 177;                   // Base RGB for teal shades
+  --teal-50: #E8F6F8;                         // Lightest teal shade
+  --teal-100: #D0EDF1;                        // Very light teal
+  --teal-200: #A1DBE3;                        // Light teal
+  --teal-300: #72C9D5;                        // Medium-light teal
+  --teal-400: #43B7C7;                        // Medium teal
+  --teal-500: #0FA3B1;                        // Brand teal
+  --teal-600: #0C8A96;                        // Medium-dark teal
+  --teal-700: #0A727D;                        // Dark teal
+  --teal-800: #085A63;                        // Very dark teal
+  --teal-900: #064349;                        // Deep teal
+  --teal-950: #032B2F;                        // Darkest teal
 
   // Cyan Color Scale
   --cyan-rgb: 42,115,46;                      // Base RGB for cyan shades
@@ -200,19 +212,19 @@
   --blue-900: #223BB1;                        // Deep blue
   --blue-950: #192452;                        // Darkest blue
 
-  // Indigo Color Scale
-  --indigo-rgb: 64,46,207;                    // Base RGB for indigo shades
-  --indigo-50: #EFF2FE;                       // Lightest indigo shade
-  --indigo-100: #E1E7FD;                      // Very light indigo
-  --indigo-200: #C9D2FC;                      // Light indigo
-  --indigo-300: #A6B3FD;                      // Medium-light indigo
-  --indigo-400: #7E86FB;                      // Medium indigo
-  --indigo-500: #615FF8;                      // Standard indigo
-  --indigo-600: #4C3AED;                      // Medium-dark indigo
-  --indigo-700: #402ECF;                      // Dark indigo
-  --indigo-800: #352AA5;                      // Very dark indigo
-  --indigo-900: #302C80;                      // Deep indigo
-  --indigo-950: #1D1A4A;                      // Darkest indigo
+  // Indigo Color Scale (mapped to Deep Navy for primary surfaces)
+  --indigo-rgb: 11, 42, 68;                   // Base RGB for navy shades
+  --indigo-50: #F0F4F8;                       // Lightest navy tint
+  --indigo-100: #E8F6F8;                      // Very light teal-navy tint
+  --indigo-200: #B8CFDE;                      // Light navy tint
+  --indigo-300: #7A9BB5;                      // Medium-light navy tint
+  --indigo-400: #4A6F8F;                      // Medium navy tint
+  --indigo-500: #2D5170;                      // Standard navy tint
+  --indigo-600: #1A3D5A;                      // Medium-dark navy
+  --indigo-700: #0B2A44;                      // Deep Navy — primary surfaces
+  --indigo-800: #081E31;                      // Very dark navy
+  --indigo-900: #061522;                      // Deep navy
+  --indigo-950: #030B12;                      // Darkest navy
 
   // Violet Color Scale
   --violet-rgb: 102,21,222;                   // Base RGB for violet shades
@@ -298,8 +310,8 @@
   --slate-900: #10172A;                       // Deep slate
   --slate-950: #030616;                       // Darkest slate
 
-  // Gray Color Scale
-  --gray-rgb: 56,65,81;                       // Base RGB for gray shades
+  // Gray Color Scale (body text uses #2D2D2D on light sections)
+  --gray-rgb: 45, 45, 45;                     // Base RGB for gray shades
   --gray-50: #F9FAFB;                         // Lightest gray shade
   --gray-100: #F3F4F6;                        // Very light gray
   --gray-200: #E5E7EB;                        // Light gray
@@ -307,10 +319,10 @@
   --gray-400: #9AA1AD;                        // Medium gray
   --gray-500: #6B7281;                        // Standard gray
   --gray-600: #4C5564;                        // Medium-dark gray
-  --gray-700: #384151;                        // Dark gray
-  --gray-800: #202937;                        // Very dark gray
-  --gray-900: #121827;                        // Deep gray
-  --gray-950: #040711;                        // Darkest gray
+  --gray-700: #2D2D2D;                        // Body text on light sections
+  --gray-800: #252525;                        // Very dark gray
+  --gray-900: #2D2D2D;                        // Body text on light sections
+  --gray-950: #1A1A1A;                        // Darkest gray
 
   // Zinc Color Scale
   --zinc-rgb: 63,63,70;                       // Base RGB for zinc shades
@@ -401,14 +413,11 @@
   // =========================================================================
   // Font Family Definitions
   // =========================================================================
-  // Specifies font families for different typography styles.
+  // Sora is loaded via index.html; used as the single brand typeface.
 
-  // Serif Font
-  --font-serif: "Playfair Display", serif;     // Elegant serif font for headings or decorative text
-
-  // Sans-Serif Fonts
-  --font-sans-serif: "Montserrat", sans-serif;  // Modern sans-serif font for general use
-  --font-primary: "Inter", sans-serif;          // Primary sans-serif font for body text
+  --font-serif: "Sora", sans-serif;
+  --font-sans-serif: "Sora", sans-serif;
+  --font-primary: "Sora", sans-serif;
 
   // Specialty Fonts
   --font-handwriting: "Caveat", cursive;        // Handwritten-style font for informal text

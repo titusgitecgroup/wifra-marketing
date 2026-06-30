@@ -27,22 +27,42 @@
 
         &.active {
           color: var(--deep-navy);
-          font-weight: 600;
+          font-weight: var(--font-weight-semibold);
         }
       }
     }
 
     &.scrolled {
       position: fixed;                         // Fixed position when scrolled
-      background-color: var(--white);          // White background when scrolled
-      -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05); // Subtle shadow (WebKit)
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05); // Standard shadow
+      background-color: var(--deep-navy) !important; // Deep navy background when scrolled
+      -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25); // Shadow for dark navbar (WebKit)
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25); // Standard shadow
       left: 0;                                 // Align to left
       top: 0;                                  // Align to top
       width: 100%;                             // Full width
       z-index: 999;                            // High z-index
       // -webkit-animation: fadeInDown 0.5s ease-out forwards; // Commented animation
       // animation: fadeInDown 0.5s ease-out forwards; // Commented animation
+
+      &.navbar-light {
+        .nav-link {
+          color: rgba(255, 255, 255, 0.9);
+
+          &:hover,
+          &:focus {
+            color: var(--brand-teal);
+          }
+
+          &.active {
+            color: var(--construction-gold);
+            font-weight: var(--font-weight-semibold);
+          }
+        }
+      }
+
+      .hamburger span {
+        background: var(--white);
+      }
     }
 
     & .navbar-nav {

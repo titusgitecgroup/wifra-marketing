@@ -388,6 +388,11 @@
   --font-serif: "Sora", sans-serif;
   --font-sans-serif: "Sora", sans-serif;
   --font-primary: "Sora", sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
   --font-handwriting: "Caveat", cursive;
   --font-monospace: "Anonymous Pro", monospace;
   /* Body Text Sizes */
@@ -11575,7 +11580,7 @@ body {
   margin: 0;
   font-family: var(--font-primary);
   color: var(--body-text) !important;
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
 }
 
 ::-webkit-input-placeholder,
@@ -21122,6 +21127,29 @@ ul li {
 }
 
 /* =========================================================================
+   Font Weight Utility Classes (.fw-*)
+   ========================================================================= */
+.fw-normal {
+  font-weight: var(--font-weight-normal) !important;
+}
+
+.fw-medium {
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.fw-semibold {
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+.fw-bold {
+  font-weight: var(--font-weight-bold) !important;
+}
+
+.fw-extrabold {
+  font-weight: var(--font-weight-extrabold) !important;
+}
+
+/* =========================================================================
    Headings (h1–h6 and .h1–.h6)
    ========================================================================= */
 h1, .h1 {
@@ -21243,7 +21271,7 @@ a.hover-underline:hover, a.hover-underline:focus {
    ========================================================================= */
 .lead {
   font-size: var(--text-lead) !important;
-  font-weight: 400 !important;
+  font-weight: var(--font-weight-normal) !important;
 }
 
 /* =========================================================================
@@ -21265,7 +21293,7 @@ body {
   --bs-btn-padding-y: var(--btn-padding-y);
   --bs-btn-font-size: var(--btn-text);
   --bs-btn-border-radius: var(--bs-border-radius-sm);
-  --bs-btn-font-weight: 500;
+  --bs-btn-font-weight: var(--font-weight-medium);
   min-width: var(--btn-size);
   min-height: var(--btn-size);
   display: inline-flex;
@@ -24080,7 +24108,7 @@ body {
   --bs-btn-padding-y: var(--btn-sm-padding-y);
   --bs-btn-font-size: var(--btn-sm-text);
   --bs-btn-border-radius: var(--bs-border-radius-sm);
-  --bs-btn-font-weight: 500;
+  --bs-btn-font-weight: var(--font-weight-medium);
   min-width: var(--btn-sm-size);
   min-height: var(--btn-sm-size);
   gap: calc(var(--btn-sm-size) / 4);
@@ -24112,7 +24140,7 @@ body {
   --bs-btn-padding-y: var(--btn-lg-padding-y);
   --bs-btn-font-size: var(--btn-text);
   --bs-btn-border-radius: var(--bs-border-radius-sm);
-  --bs-btn-font-weight: 500;
+  --bs-btn-font-weight: var(--font-weight-medium);
   min-width: var(--btn-lg-size);
   min-height: var(--btn-lg-size);
   gap: calc(var(--btn-lg-size) / 4);
@@ -24144,7 +24172,7 @@ body {
   --bs-btn-padding-y: var(--btn-xl-padding-y);
   --bs-btn-font-size: var(--btn-xl-text);
   --bs-btn-border-radius: var(--bs-border-radius-sm);
-  --bs-btn-font-weight: 500;
+  --bs-btn-font-weight: var(--font-weight-medium);
   min-width: var(--btn-xl-size);
   min-height: var(--btn-xl-size);
   gap: calc(var(--btn-xl-size) / 4);
@@ -24543,17 +24571,30 @@ body {
 }
 .header .navbar.navbar-light .nav-link.active {
   color: var(--deep-navy);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
 .header .navbar.scrolled {
   position: fixed;
-  background-color: var(--white);
-  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+  background-color: var(--deep-navy) !important;
+  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
   left: 0;
   top: 0;
   width: 100%;
   z-index: 999;
+}
+.header .navbar.scrolled.navbar-light .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+.header .navbar.scrolled.navbar-light .nav-link:hover, .header .navbar.scrolled.navbar-light .nav-link:focus {
+  color: var(--brand-teal);
+}
+.header .navbar.scrolled.navbar-light .nav-link.active {
+  color: var(--construction-gold);
+  font-weight: var(--font-weight-semibold);
+}
+.header .navbar.scrolled .hamburger span {
+  background: var(--white);
 }
 .header .navbar .navbar-nav .nav-item, .header .navbar .navbar-nav li {
   margin-bottom: 0;
@@ -24720,10 +24761,13 @@ body {
 }
 
 .header.light .navbar {
+  min-height: 90px;
+  max-height: 90px;
   background-color: var(--white);
   box-shadow: 0 1px 0 rgba(11, 42, 68, 0.08);
 }
 .header.light .navbar .nav-link {
+  font-weight: var(--font-weight-semibold);
   color: var(--body-text) !important;
 }
 .header.light .navbar .nav-link:hover, .header.light .navbar .nav-link:focus {
@@ -24731,7 +24775,23 @@ body {
 }
 .header.light .navbar .nav-link.active {
   color: var(--deep-navy) !important;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
+}
+.header.light .navbar.scrolled {
+  background-color: var(--deep-navy) !important;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+.header.light .navbar.scrolled .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.header.light .navbar.scrolled .nav-link:hover, .header.light .navbar.scrolled .nav-link:focus {
+  color: var(--brand-teal) !important;
+}
+.header.light .navbar.scrolled .nav-link.active {
+  color: var(--construction-gold) !important;
+}
+.header.light .navbar.scrolled .hamburger span {
+  background: var(--white);
 }
 .header.light .hamburger span {
   background: var(--deep-navy);
@@ -24739,6 +24799,12 @@ body {
 .header.light .main-menu.active,
 .header.light .hamburger.active + .main-menu {
   background-color: var(--white);
+}
+
+.request-demo-btn {
+  color: var(--deep-navy);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-extrabold);
 }
 
 #home.bg-indigo-700 h1,
@@ -24794,5 +24860,3 @@ body {
   border-color: var(--brand-teal);
   box-shadow: 0 0 0 0.25rem rgba(var(--brand-teal-rgb), 0.25);
 }
-
-/*# sourceMappingURL=styles.css.map */

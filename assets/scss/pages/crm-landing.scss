@@ -9,12 +9,15 @@
 // White navbar with brand menu colors
 .header.light {
   .navbar {
+    min-height: 90px;
+    max-height: 90px;
     background-color: var(--white);
     box-shadow: 0 1px 0 rgba(11, 42, 68, 0.08);
 
     .nav-link {
+      font-weight: var(--font-weight-semibold);
       color: var(--body-text) !important;
-
+      
       &:hover,
       &:focus {
         color: var(--brand-teal) !important;
@@ -22,7 +25,29 @@
 
       &.active {
         color: var(--deep-navy) !important;
-        font-weight: 600;
+        font-weight: var(--font-weight-semibold);
+      }
+    }
+
+    &.scrolled {
+      background-color: var(--deep-navy) !important;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+
+      .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+
+        &:hover,
+        &:focus {
+          color: var(--brand-teal) !important;
+        }
+
+        &.active {
+          color: var(--construction-gold) !important;
+        }
+      }
+
+      .hamburger span {
+        background: var(--white);
       }
     }
   }
@@ -35,6 +60,12 @@
   .hamburger.active + .main-menu {
     background-color: var(--white);
   }
+}
+
+.request-demo-btn {
+  color: var(--deep-navy);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-extrabold);
 }
 
 // Hero section on Deep Navy

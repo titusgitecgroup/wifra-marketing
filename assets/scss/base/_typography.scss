@@ -49,6 +49,25 @@ $font-sizes: (
 }
 
 /* =========================================================================
+   Font Weight Utility Classes (.fw-*)
+   ========================================================================= */
+// Aligns with Bootstrap class names; values come from design tokens.
+
+$font-weights: (
+  normal: var(--font-weight-normal),
+  medium: var(--font-weight-medium),
+  semibold: var(--font-weight-semibold),
+  bold: var(--font-weight-bold),
+  extrabold: var(--font-weight-extrabold)
+);
+
+@each $name, $value in $font-weights {
+  .fw-#{$name} {
+    font-weight: #{$value} !important;
+  }
+}
+
+/* =========================================================================
    Headings (h1–h6 and .h1–.h6)
    ========================================================================= */
 // Defines styles for HTML heading tags and corresponding utility classes.
@@ -151,7 +170,7 @@ a {
 
 .lead {
   font-size: var(--text-lead) !important;     // Applies lead text size
-  font-weight: 400 !important;                // Normal font weight for lead text
+  font-weight: var(--font-weight-normal) !important;
 }
 
 /* =========================================================================

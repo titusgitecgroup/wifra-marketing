@@ -10,7 +10,7 @@
   --bs-btn-padding-y: var(--btn-padding-y);   // Vertical padding from variables
   --bs-btn-font-size: var(--btn-text);         // Font size from variables
   --bs-btn-border-radius: var(--bs-border-radius-sm); // Border radius
-  --bs-btn-font-weight: 500;                  // Medium font weight
+  --bs-btn-font-weight: var(--font-weight-medium);
   min-width: var(--btn-size);                 // Minimum button width
   min-height: var(--btn-size);            // Minimum button height
   display: inline-flex;                       // Flex layout for alignment
@@ -311,7 +311,7 @@ $btn-sizes: (
     --bs-btn-padding-y: #{map-get($values, padding-y)}; // Set vertical padding
     --bs-btn-font-size: #{map-get($values, text)};      // Set font size
     --bs-btn-border-radius: var(--bs-border-radius-sm); // Border radius
-    --bs-btn-font-weight: 500;                         // Medium font weight
+    --bs-btn-font-weight: var(--font-weight-medium);
     min-width: #{map-get($values, size)};              // Minimum width
     min-height: #{map-get($values, size)};             // Minimum height
     gap: calc(#{map-get($values, size)} / 4);          // Dynamic gap based on size

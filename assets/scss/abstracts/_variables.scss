@@ -419,6 +419,13 @@
   --font-sans-serif: "Sora", sans-serif;
   --font-primary: "Sora", sans-serif;
 
+  // Font Weight (Sora supports 100–800 via Google Fonts)
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
   // Specialty Fonts
   --font-handwriting: "Caveat", cursive;        // Handwritten-style font for informal text
   --font-monospace: "Anonymous Pro", monospace; // Monospace font for code or technical text

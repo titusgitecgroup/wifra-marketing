@@ -8,6 +8,9 @@
 
 // White navbar with brand menu colors
 .header.light {
+  position: relative;
+  padding-top: 90px;
+
   .navbar {
     min-height: 90px;
     max-height: 90px;
@@ -66,6 +69,25 @@
   color: var(--deep-navy);
   font-size: var(--text-base);
   font-weight: var(--font-weight-extrabold);
+}
+
+// Urgency banner — sits directly below the navbar
+.urgency-banner {
+  background-color: var(--brand-teal);
+  color: var(--white);
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 90px;
+  z-index: 998;
+
+  p {
+    margin-bottom: 0;
+
+    + p {
+      margin-top: 0.25rem;
+    }
+  }
 }
 
 // Hero section on Deep Navy

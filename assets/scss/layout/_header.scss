@@ -9,6 +9,8 @@
 
   & .sticky {
     position: absolute;                        // Absolute positioning for sticky effect
+    top: 0;                                    // Pin to top of header
+    left: 0;                                   // Align to left
     z-index: 999;                              // High z-index to stay above content
     width: 100%;                               // Full width
   }

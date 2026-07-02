@@ -24557,6 +24557,8 @@ body {
 }
 .header .sticky {
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 999;
   width: 100%;
 }
@@ -24760,6 +24762,10 @@ body {
   color: var(--construction-gold) !important;
 }
 
+.header.light {
+  position: relative;
+  padding-top: 90px;
+}
 .header.light .navbar {
   min-height: 90px;
   max-height: 90px;
@@ -24805,6 +24811,22 @@ body {
   color: var(--deep-navy);
   font-size: var(--text-base);
   font-weight: var(--font-weight-extrabold);
+}
+
+.urgency-banner {
+  background-color: var(--brand-teal);
+  color: var(--white);
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 90px;
+  z-index: 998;
+}
+.urgency-banner p {
+  margin-bottom: 0;
+}
+.urgency-banner p + p {
+  margin-top: 0.25rem;
 }
 
 #home.bg-indigo-700 h1,
